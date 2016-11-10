@@ -1,6 +1,12 @@
 package caveExplorer;
 
 public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
+	
+	private static final String[] SEQ_1 = {""};
+	private static final String[] SEQ_2 = {""};
+	private static final String[] SEQ_3 = {""};
+	private static boolean gameFinished = false;
+
 
 	public WendyZhengRoom(String description) {
 		super(description);
@@ -11,6 +17,19 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 	{
 		super.enter();
 		System.out.println("You are locked in this room");
+		if(gameFinished == false)
+		{
+			readSequence(SEQ_1);
+			play();
+			readSequence(SEQ_2);
+		}
+		else
+		{
+			readSequence(SEQ_3);
+			super.leave();
+			
+		}
+			
 	}
 	
 	public void interpretAction(String input) {
@@ -49,4 +68,29 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 		return false;
 	}
 
+	@Override
+	public void play() {
+		// TODO Auto-generated method stub
+		
+		//Person interaction
+		//AI interaction
+		//board display dashed lines --> solid lines computer square: X player square: O
+		//logic 
+		//board = 4*4 
+		//inputs? row col Dir OR ask for row, ask for col, ask for dir
+		//logic + constraints: line drawn already? how to win? boxed? detection of gameover? keep scoring?
+		//cheatcode
+		
+
+	}
+	public static void readSequence(String[] seq){
+		for(String s:seq){
+			CaveExplorer.print(s);
+			CaveExplorer.print("-----Press Enter------");
+			CaveExplorer.in.nextLine();
+		}
+	}
 }
+	
+
+
