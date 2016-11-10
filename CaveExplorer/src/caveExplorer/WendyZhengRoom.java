@@ -2,7 +2,7 @@ package caveExplorer;
 
 public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 	
-	private static final String[] SEQ_1 = {""};
+	private static final String[] SEQ_1 = {"You have been trapped by the Red Queen and her card soldiers!","The queen refuses"};
 	private static final String[] SEQ_2 = {""};
 	private static final String[] SEQ_3 = {""};
 	private static boolean gameFinished = false;
