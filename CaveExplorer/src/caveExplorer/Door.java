@@ -44,7 +44,7 @@ public class Door {
 	public void setDetails(String details) {
 		this.details = details;
 	}
-	public static String toDirection(int dir) {
+	public String toDirection(int dir) {
 		String[] strings = {"the North","the East","the South", "the West"};
 		return strings[dir];
 	
