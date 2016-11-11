@@ -2,16 +2,21 @@ package caveExplorer;
 
 public class InventoryNockles {
 	private boolean hasMap;
+	private boolean hasKey1;
+	private boolean hasKey2;
+	private boolean hasKey3;
 	private String map;
 	
 	
 	public InventoryNockles(CaveRoomPd8[][] caves) {
 		hasMap=false;
+		hasKey1=false;
+		hasKey2=false;
+		hasKey3=false;
 		updateMap();
 		
 	}
 	
-
 	public void setHasMap(boolean hasMap) {
 		this.hasMap = hasMap;
 	}
@@ -41,7 +46,7 @@ public class InventoryNockles {
 						}
 					}
 					else if(textRow==2){
-						if(cr.getDoor(CaveRoomPd8.SOUTH)!=null&&cr.getDoor(CaveRoomPd8.WEST).isOpen()){
+						if(cr.getDoor(CaveRoomPd8.SOUTH)!=null&&cr.getDoor(CaveRoomPd8.SOUTH).isOpen()){
 							str="|_ _";
 						}else{
 							str="|___";

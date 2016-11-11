@@ -36,7 +36,7 @@ public class CaveRoomPd8 {
 			directions = "\n\nThis is a room with no exit. You will die here.";		
 		}else{
 			for(int dir = 0; dir < doors.length; dir++){
-				if(doors[dir] != null){
+				if(doors[dir] != null&&doors[dir].isOpen() ==true){
 					directions += "\n   There is a "+doors[dir].getDescription()+" to "+doors[dir].toDirection(dir)+". "+doors[dir].getDetails();
 				}
 			}
@@ -59,7 +59,6 @@ public class CaveRoomPd8 {
 	public void setDefaultContents(String symbol){
 		defaultContents = symbol;
 	}
-	
 
 	public void addRoom(int direction, CaveRoomPd8 anotherRoom, Door door){
 		borderingRooms[direction] = anotherRoom;
@@ -74,6 +73,7 @@ public class CaveRoomPd8 {
 	 * @param anotherRoom
 	 * @param door
 	 */
+	//use this for when we allow the keys to access rooms
 	public void setConnection(int direction, CaveRoomPd8 anotherRoom, Door door){
 		addRoom(direction, anotherRoom, door);
 		anotherRoom.addRoom(oppositeDirection(direction), this, door);

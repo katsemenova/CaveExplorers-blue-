@@ -2,18 +2,19 @@ package caveExplorer;
 
 public class GameStartEvent implements Playable {
 	
-	private static final String[] SEQUENCE_1={"<A little yellow mouse with brown stripes and a lighting shaped tale runs up to you>",
-			"Hi. I can see you are not from here.","Do you like puzzles?",""};
-	private static final String[] SEQUENCE_2={"You will have so much fun playing my 2-D games","Take this map."};
+	private static final String[] SEQUENCE_1={"<Oh no! You have fallen down a hole...>","Hi I'm Rabbit. I heard your name is Alice. Welcome to Wonderland.",
+			"This is the Queen of Heart's land. If you want to leave you have to collect the three keys.", "She had her soldiers hide the keys throughout the land.",
+			"To get the keys, you have to play the minigames when you find them."};
+	private static final String[] SEQUENCE_2={"Here is the map. Sadly I do not know where the games are.","Go explore and find the keys. Best of luck, farewell."};
 	public GameStartEvent() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public void play(){
 		readSequence(SEQUENCE_1);
-		System.out.println("Come On, tell me you like puzzles say yes");
+		System.out.println("Are you ready?");
 		while(CaveExplorer.in.nextLine().toLowerCase().indexOf("yes")<0){
-			CaveExplorer.print("Say yes, you know you like puzzles");
+			CaveExplorer.print("I'll continue when you say 'yes' so I know you are ready.");
 		}
 		readSequence(SEQUENCE_2);
 		CaveExplorer.inventory.setHasMap(true);

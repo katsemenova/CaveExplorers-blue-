@@ -20,6 +20,9 @@ public class Door {
 	public void setOpen(boolean open) {
 		this.open = open;
 	}
+	public void setClosed(boolean open) {
+		this.open = false;
+	}
 
 	public boolean isLocked() {
 		return locked;
