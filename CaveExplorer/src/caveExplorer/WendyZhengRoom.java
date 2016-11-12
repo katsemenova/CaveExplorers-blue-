@@ -2,8 +2,8 @@ package caveExplorer;
 
 public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 	
-	private static final String[] SEQ_1 = {"You have been trapped by the Red Queen and her card soldiers!","The queen refuses"};
-	private static final String[] SEQ_2 = {""};
+	private static final String[] SEQ_1 = {"You have been trapped by the Red Queen and her card soldiers!","The queen refuses to let you leave this room", "To unlock the doors and leave, you need to take over the room against the Red Queen's card guards"};
+	private static final String[] SEQ_2 = {"You have taken over the dimensional room and returned back to where you were", "Now that you have beat the Red Queen, the doors are now unlocked"};
 	private static final String[] SEQ_3 = {""};
 	private static boolean gameFinished = false;
 
