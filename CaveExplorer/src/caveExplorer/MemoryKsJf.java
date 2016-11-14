@@ -2,26 +2,51 @@ package caveExplorer;
 
 public class MemoryKsJf extends CaveRoomPd8 {
 
-	public CardKsJb[][] cards;
+	public static CardJf[][] cards;
+	public boolean playerMove;
 	public String[][] learnedCards; //will be length 12, the first [] is the number, the second[] is the symbol 
 	public String[] symbols={"#","#","@","@","*","*","?","?","!","!","%","%"};
+	private static String map[][];
+	
 	public MemoryKsJf(String description) {
 		super(description);
 		// TODO Auto-generated constructor stub
 		drawCards();
 	}
+	public static void updateMap(){
+		for(int row=0;row<cards.length;row++){
+			for(int col=0;col<cards[0].length;col++){
+				 map[row][col]="|"+cards[row][col].getNumIdentifier()+"|";
+			}
+		}
+		printMap(map);
+	}
+	private static void printMap(String[][] map2) {
+		String str="";
+		int count=0;
+		for(int row=0;row<map2.length;row++){
+			for(int col=0;col<map2[0].length;col++){
+				if(count%4==0&&count!=0){
+					System.out.println("");
+					System.out.println("");
+				}
+				str+= map2[row][col]+"  ";
+			}
+		}
+	}
 	private void drawCards() {
-		cards = new CardKsJb[3][4];
+		cards = new CardJf[3][4];
 		int count=1;
 		for(int row=0;row<cards.length;row++){
 			for(int col=0;col<cards[row].length;col++){
 				String sym=setSymbol();
 				String countToString=""+count;
-				cards[row][col]=new CardKsJb(countToString,sym);
+				cards[row][col]=new CardJf(countToString,sym);
 				count++;
 			}
 		}
 	}
+
 	private String setSymbol() {
 		int num=(int)(Math.random()*12);
 		String result = null;

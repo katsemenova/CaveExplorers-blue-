@@ -1,12 +1,12 @@
 package caveExplorer;
 
-public class CardKsJb {
+public class CardJf {
 	private static String symbol;
 	private static boolean flippedOpen;
 	private static String numIdentifier;
 	
 	
-	public CardKsJb(String num, String sym){
+	public  CardJf(String num, String sym){
 		symbol=sym;
 		numIdentifier = num;
 		flippedOpen =false;
@@ -17,7 +17,7 @@ public class CardKsJb {
 	}
 
 	public static void setSymbol(String symbol) {
-		CardKsJb.symbol = symbol;
+		CardJf.symbol = symbol;
 	}
 
 	public static boolean isFlippedOpen() {
@@ -25,14 +25,14 @@ public class CardKsJb {
 	}
 
 	public static void setFlippedOpen(boolean flippedOpen) {
-		CardKsJb.flippedOpen = flippedOpen;
+		CardJf.flippedOpen = flippedOpen;
 	}
 
-	public static String getNumIdentifier() {
+	public  String getNumIdentifier() {
 		return numIdentifier;
 	}
 
 	public static void setNumIdentifier(String numIdentifier) {
-		CardKsJb.numIdentifier = numIdentifier;
+		CardJf.numIdentifier = numIdentifier;
 	}
 }
