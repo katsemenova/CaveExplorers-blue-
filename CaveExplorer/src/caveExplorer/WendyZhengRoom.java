@@ -46,17 +46,8 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 				break;
 			}
 		}
-		goToRoom(indexFound);
-		
-	}
 
-	private void goToRoom(int indexFound) {
-		if(borderingRooms[indexFound]!= null&&doors[indexFound]!=null&&doors[indexFound].isOpen()){
-			CaveExplorer.currentRoom.leave();
-			CaveExplorer.currentRoom=borderingRooms[indexFound];
-			CaveExplorer.currentRoom.enter();
-			CaveExplorer.inventory.updateMap();
-		}
+		
 	}
 
 	private boolean isValid(String input) {
@@ -81,13 +72,45 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 		//logic + constraints: line drawn already? how to win? boxed? detection of gameover? keep scoring?
 		//cheatcode
 		
-
+		WZSquare[][] board = new WZSquare[4][4];
+		for(int row=0;row<board.length;row++){
+			for(int col=0;col<board[row].length;col++){
+				board[row][col]=new WZSquare();
+			}
+		}
+		displayField(board);
 	}
 	public static void readSequence(String[] seq){
 		for(String s:seq){
 			CaveExplorer.print(s);
 			CaveExplorer.print("-----Press Enter------");
 			CaveExplorer.in.nextLine();
+		}
+	}
+	
+	public static void displayField(WZSquare[][] board)
+	{
+		String boardDis = "*";
+		for (WZSquare[] row : board )
+		{
+			for(int textRow = 0; textRow < 2; textRow ++)
+			{
+				for(WZSquare square : row)
+				{
+					if (textRow == 0)
+					{
+						if(square.sides[0] == false)
+						{
+							boardDis += "   ";
+						}
+					}
+					else
+					{
+						boardDis += "---";
+					}
+					boardDis += "*";
+				}
+			}
 		}
 	}
 }
