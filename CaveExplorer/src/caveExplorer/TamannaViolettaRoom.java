@@ -2,6 +2,7 @@ package caveExplorer;
 
 public class TamannaViolettaRoom extends CaveRoomPd8{
 	
+	
 	public TamannaViolettaRoom(String description) {
 		super(description);
 		// TODO Auto-generated constructor stub
