@@ -103,7 +103,7 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 						{
 							boardDis += "   ";
 						}
-					}
+					} 
 					else
 					{
 						boardDis += "---";
