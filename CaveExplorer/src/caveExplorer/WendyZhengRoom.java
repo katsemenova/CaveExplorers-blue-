@@ -49,7 +49,7 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 				break;
 			}
 		}
-	}
+	} 
 
 	private boolean isValid(String input) {
 		String[] validKeys={"w","a","s","d"};
@@ -147,29 +147,7 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 				display += "\n";	
 			}
 		System.out.println(display);
-		
-		/*String boardDis = "*";
-		for (WZSquare[] row : board )
-		{
-			for(int textRow = 0; textRow < 2; textRow ++)
-			{
-				for(WZSquare square : row)
-				{
-					if (textRow == 0)
-					{
-						if(square.sides[0] == false)
-						{
-							boardDis += "   ";
-						}
-					} 
-					else
-					{
-						boardDis += "---";
-					}
-					boardDis += "*";
-				}
-			}
-		}*/ 
+		 
 	}
 	
 	public static int oppositeDirection(int dir){

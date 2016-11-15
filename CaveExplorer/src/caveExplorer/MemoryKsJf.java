@@ -1,6 +1,6 @@
 package caveExplorer;
 
-public class MemoryKsJf extends CaveRoomPd8 implements Playable {
+public class MemoryKsJf implements Playable {
 
 	public static CardJf[][] cards;
 	public boolean playerMove;
@@ -14,13 +14,17 @@ public class MemoryKsJf extends CaveRoomPd8 implements Playable {
 		
 	}
 	public static void updateMap(){
+		System.out.println("map");
+		map = new String[3][4];
 		for(int row=0;row<cards.length;row++){
-			for(int col=0;col<cards[0].length;col++){
+			for(int col=0;col<cards[row].length;col++){
 				 map[row][col]="|"+cards[row][col].getNumIdentifier()+"|";
+				 System.out.println(cards[row][col].getSymbol());
 			}
 		}
+		System.out.println("map made");
 		printMap(map);
-		System.out.println("map");
+		System.out.println("map printedd");
 	}
 	public void play(){
 		System.out.println("it worked play ");
@@ -43,23 +47,25 @@ public class MemoryKsJf extends CaveRoomPd8 implements Playable {
 		System.out.println(str);
 	}
 	private void drawCards() {
-		System.out.println("cards begin");
+		//System.out.println("cards begin");
 		cards = new CardJf[3][4];
 		int count=1;
+		
 		for(int row=0;row<cards.length;row++){
 			for(int col=0;col<cards[row].length;col++){
-				String sym=setSymbol();
-				String countToString=""+count;
-				cards[row][col]=new CardJf(countToString,sym);
+				cards[row][col]=new CardJf();
+				cards[row][col].setSymbol(setSymbols());
+				cards[row][col].setNumIdentifier(""+count);
+				System.out.println(cards[row][col].getSymbol());
 				count++;
 			}
 		}
-		System.out.println("cards drwan");
+		//System.out.println("cards drwan");
 	}
 
-	private String setSymbol() {
+	private String setSymbols() {
 		int num=(int)(Math.random()*12);
-		String result = null;
+		String result = "";
 		boolean isValid=false;
 		while(!isValid){
 			if(symbols[num].equals("")){
@@ -67,6 +73,7 @@ public class MemoryKsJf extends CaveRoomPd8 implements Playable {
 			}else{
 				result=symbols[num];
 				symbols[num]="";
+				isValid=true;
 			}	
 		}
 		return result;
