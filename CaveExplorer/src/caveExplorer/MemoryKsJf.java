@@ -53,10 +53,11 @@ public class MemoryKsJf implements Playable {
 		
 		for(int row=0;row<cards.length;row++){
 			for(int col=0;col<cards[row].length;col++){
+//				System.out.println("before"+cards[row][col].getNumIdentifier()+" and "+ cards[row][col].getSymbol());
 				cards[row][col]=new CardJf();
 				cards[row][col].setSymbol(setSymbols());
 				cards[row][col].setNumIdentifier(""+count);
-				System.out.println(cards[row][col].getSymbol());
+				System.out.println(cards[row][col].getNumIdentifier()+" and "+ cards[row][col].getSymbol());
 				count++;
 			}
 		}

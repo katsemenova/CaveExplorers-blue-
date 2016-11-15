@@ -17,7 +17,7 @@ public class CardJf {
 		return symbol;
 	}
 
-	public void setSymbol(String symbol) {
+	public  void setSymbol(String symbol) {
 		CardJf.symbol = symbol;
 	}
 
