@@ -76,6 +76,17 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 			}
 		}
 		displayField(board);
+			// TODO Auto-generated method stub
+			
+			if(WendyZhengRoom.whosmove.equals("P"))
+			{
+				WendyDotBoxPlayer.playerTurn();
+			}
+			else
+			{
+				
+			}
+			
 	}
 	public static void readSequence(String[] seq){
 		for(String s:seq){
@@ -162,7 +173,7 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 		return (dir+2)%4;
 	}
 	
-	private static void addSharedSide(int row, int col, int side) {
+	public static void addSharedSide(int row, int col, int side) {
 		
 		board[row][col].addSide(side);
 		board[row][col].squareDec(whosmove);
