@@ -6,7 +6,7 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 	private static final String[] SEQ_2 = {"You have taken over the dimensional room and returned back to where you were", "Now that you have beat the Red Queen, the doors are now unlocked"};
 	private static final String[] SEQ_3 = {"YOu have already been in this room"};
 	private static boolean gameFinished = false;
-
+	private static WZSquare[][] board = new WZSquare[4][4];
 
 	public WendyZhengRoom(String description) {
 		super(description);
@@ -72,10 +72,9 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 		//logic + constraints: line drawn already? how to win? boxed? detection of gameover? keep scoring?
 		//cheatcode
 		
-		WZSquare[][] board = new WZSquare[4][4];
 		for(int row=0;row<board.length;row++){
 			for(int col=0;col<board[row].length;col++){
-				board[row][col]=new WZSquare();
+				board[row][col]=new WZSquare(row, col);
 			}
 		}
 		displayField(board);
@@ -90,7 +89,54 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 	
 	public static void displayField(WZSquare[][] board)
 	{
-		String boardDis = "*";
+		String display = "*";
+		for(WZSquare square : board[0])
+			if(square.sides[0] == false)
+				display += "   *";
+			else
+				display += "---*";
+		
+		display += "\n";
+		
+		for (WZSquare[] row : board)
+			for(int textRow = 0; textRow < 2; textRow ++)
+			{
+				for(WZSquare square : row)
+				{
+					String str = "";
+					if(textRow == 0)
+					{
+						if(square.sides[3])
+							str += "|";
+						else
+							str += " ";
+						
+						str += " "+ square.conquorer +" ";
+					}
+					else
+					{
+						if(square.col == 0) 
+							str += "*";
+						
+						if(square.sides[2])
+							str += "---*";
+						else
+							str += "   *";
+					}
+					display += str;
+				}
+				
+				if(textRow == 0)
+					if(row[3].sides[1])
+						display += "|";
+					else
+						display += " ";
+				
+				display += "\n";	
+			}
+		System.out.println(display);
+		
+		/*String boardDis = "*";
 		for (WZSquare[] row : board )
 		{
 			for(int textRow = 0; textRow < 2; textRow ++)
@@ -111,7 +157,26 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 					boardDis += "*";
 				}
 			}
-		}
+		}*/
+	}
+	
+	public static int oppositeDirection(int dir){
+		return (dir+2)%4;
+	}
+	
+	private static void addSharedSideSquare(int row, int col, int side) {
+		
+		if(side == 0)
+			row--;
+		if(side == 1)
+			col++;
+		if(side == 2)
+			row++;
+		if(side == 3)
+			col--;
+		
+		if(row >= 0 && row < board.length && col >= 0 && col < board[0].length)
+			board[row][col].addSide(oppositeDirection(side));
 	}
 }
 	
