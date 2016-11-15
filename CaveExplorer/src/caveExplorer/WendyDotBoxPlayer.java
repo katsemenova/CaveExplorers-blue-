@@ -55,7 +55,7 @@ public class WendyDotBoxPlayer{
 		{
 			return 0;
 		}
-		if(input2.equals("east"))
+		if(input2.equals("east")) 
 		{
 			return 1;
 		}

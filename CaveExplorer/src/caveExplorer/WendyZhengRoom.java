@@ -46,7 +46,7 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 				break;
 			}
 		}
-	}
+	} 
 
 	private boolean isValid(String input) {
 		String[] validKeys={"w","a","s","d"};
