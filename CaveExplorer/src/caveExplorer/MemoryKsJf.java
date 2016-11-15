@@ -1,6 +1,6 @@
 package caveExplorer;
 
-public class MemoryKsJf extends CaveRoomPd8 {
+public class MemoryKsJf extends CaveRoomPd8 implements Playable {
 
 	public static CardJf[][] cards;
 	public boolean playerMove;
@@ -8,10 +8,10 @@ public class MemoryKsJf extends CaveRoomPd8 {
 	public String[] symbols={"#","#","@","@","*","*","?","?","!","!","%","%"};
 	private static String map[][];
 	
-	public MemoryKsJf(String description) {
-		super(description);
+	public MemoryKsJf() {
+		
 		// TODO Auto-generated constructor stub
-		drawCards();
+		
 	}
 	public static void updateMap(){
 		for(int row=0;row<cards.length;row++){
@@ -20,7 +20,14 @@ public class MemoryKsJf extends CaveRoomPd8 {
 			}
 		}
 		printMap(map);
+		System.out.println("map");
 	}
+	public void play(){
+		System.out.println("it worked play ");
+		drawCards();
+		updateMap();
+	}
+	
 	private static void printMap(String[][] map2) {
 		String str="";
 		int count=0;
@@ -33,8 +40,10 @@ public class MemoryKsJf extends CaveRoomPd8 {
 				str+= map2[row][col]+"  ";
 			}
 		}
+		System.out.println(str);
 	}
 	private void drawCards() {
+		System.out.println("cards begin");
 		cards = new CardJf[3][4];
 		int count=1;
 		for(int row=0;row<cards.length;row++){
@@ -45,6 +54,7 @@ public class MemoryKsJf extends CaveRoomPd8 {
 				count++;
 			}
 		}
+		System.out.println("cards drwan");
 	}
 
 	private String setSymbol() {
@@ -63,7 +73,7 @@ public class MemoryKsJf extends CaveRoomPd8 {
 		
 	}
 	public void enter(){
-		super.enter(); //done to make sure that the X is moved in the actual thing
+//		super.enter(); //done to make sure that the X is moved in the actual thing
 		
 	}
 	

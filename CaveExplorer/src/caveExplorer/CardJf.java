@@ -10,6 +10,7 @@ public class CardJf {
 		symbol=sym;
 		numIdentifier = num;
 		flippedOpen =false;
+		System.out.println("in card");
 	}
 
 	public static String getSymbol() {
