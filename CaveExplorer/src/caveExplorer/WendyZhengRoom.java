@@ -8,7 +8,10 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 	private static boolean gameFinished = false;
 	public static WZSquare[][] board = new WZSquare[4][4];
 	public static String whosmove = "P";
-
+	
+	private static WendyDotBoxPlayer player = new WendyDotBoxPlayer();
+	private static ZhengDotBoxAI queen = new ZhengDotBoxAI();
+	
 	public WendyZhengRoom(String description) {
 		super(description);
 		// TODO Auto-generated constructor stub
@@ -80,11 +83,11 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 			
 			if(WendyZhengRoom.whosmove.equals("P"))
 			{
-				WendyDotBoxPlayer.playerTurn();
+				player.playerTurn();
 			}
 			else
 			{
-				
+				queen.makeMove();
 			}
 			
 	}
