@@ -20,5 +20,25 @@ public class WZSquare {
 	{
 		sides[side] = true;
 	}
+	
+	public boolean testForSquare()
+	{
+		for(int i = 0; i< sides.length; i++)
+		{
+			if(!sides[i])
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public void squareDec(String whosmove)
+	{
+		if(testForSquare())
+		{
+			conquorer = whosmove;  
+		}
+	}
 }
  

@@ -7,6 +7,7 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 	private static final String[] SEQ_3 = {"YOu have already been in this room"};
 	private static boolean gameFinished = false;
 	private static WZSquare[][] board = new WZSquare[4][4];
+	private static String whosmove = "P";
 
 	public WendyZhengRoom(String description) {
 		super(description);
@@ -28,8 +29,7 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 			readSequence(SEQ_3);
 			super.leave();
 			
-		}
-			
+		}	
 	}
 	
 	public void interpretAction(String input) {
@@ -46,8 +46,6 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 				break;
 			}
 		}
-
-		
 	}
 
 	private boolean isValid(String input) {
@@ -164,7 +162,10 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 		return (dir+2)%4;
 	}
 	
-	private static void addSharedSideSquare(int row, int col, int side) {
+	private static void addSharedSide(int row, int col, int side) {
+		
+		board[row][col].addSide(side);
+		board[row][col].squareDec(whosmove);
 		
 		if(side == 0)
 			row--;
@@ -176,8 +177,13 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 			col--;
 		
 		if(row >= 0 && row < board.length && col >= 0 && col < board[0].length)
+		{
 			board[row][col].addSide(oppositeDirection(side));
+			board[row][col].squareDec(whosmove);
+		}
 	}
+	
+	
 }
 	
 
