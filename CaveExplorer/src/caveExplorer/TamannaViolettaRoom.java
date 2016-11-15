@@ -5,13 +5,20 @@ public class TamannaViolettaRoom extends CaveRoomPd8{
 	
 	public TamannaViolettaRoom(String description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	public static void tvCheatCode(){
 		
 	}
 	
+	public static void readSequence(String[] seq){
+		for(String s:seq){
+			CaveExplorer.print(s);
+			CaveExplorer.print("-----Press Enter------");
+			CaveExplorer.in.nextLine();
+		}
+	}
 	
 	//storyline (together)
 		//you have stumbled upon the dwellings of the Cheshire Cat.
