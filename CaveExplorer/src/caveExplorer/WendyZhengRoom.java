@@ -6,8 +6,8 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 	private static final String[] SEQ_2 = {"You have taken over the dimensional room and returned back to where you were", "Now that you have beat the Red Queen, the doors are now unlocked"};
 	private static final String[] SEQ_3 = {"YOu have already been in this room"};
 	private static boolean gameFinished = false;
-	private static WZSquare[][] board = new WZSquare[4][4];
-	private static String whosmove = "P";
+	public static WZSquare[][] board = new WZSquare[4][4];
+	public static String whosmove = "P";
 
 	public WendyZhengRoom(String description) {
 		super(description);
@@ -74,8 +74,19 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 			for(int col=0;col<board[row].length;col++){
 				board[row][col]=new WZSquare(row, col);
 			}
-		}
+		} 
 		displayField(board);
+			// TODO Auto-generated method stub
+			
+			if(WendyZhengRoom.whosmove.equals("P"))
+			{
+				WendyDotBoxPlayer.playerTurn();
+			}
+			else
+			{
+				
+			}
+			
 	}
 	public static void readSequence(String[] seq){
 		for(String s:seq){
@@ -155,14 +166,14 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 					boardDis += "*";
 				}
 			}
-		}*/
+		}*/ 
 	}
 	
 	public static int oppositeDirection(int dir){
 		return (dir+2)%4;
 	}
 	
-	private static void addSharedSide(int row, int col, int side) {
+	public static void addSharedSide(int row, int col, int side) {
 		
 		board[row][col].addSide(side);
 		board[row][col].squareDec(whosmove);
@@ -182,7 +193,8 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 			board[row][col].squareDec(whosmove);
 		}
 	}
-	
+
+
 	
 }
 	
