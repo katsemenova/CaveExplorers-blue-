@@ -6,7 +6,7 @@ public class WendyDotBoxPlayer{
  
 	public static void playerTurn() {
 		// TODO Auto-generated method stub
-		while(WendyZhengRoom.whosmove.equals("P"))
+		while(WendyZhengRoom.whosmove.equals("P")) 
 		{
 			System.out.println("Where is your next move's row?");
 			int row = input;

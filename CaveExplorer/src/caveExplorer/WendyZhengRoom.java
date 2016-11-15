@@ -74,7 +74,7 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 			for(int col=0;col<board[row].length;col++){
 				board[row][col]=new WZSquare(row, col);
 			}
-		}
+		} 
 		displayField(board);
 			// TODO Auto-generated method stub
 			
