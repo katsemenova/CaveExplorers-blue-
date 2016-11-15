@@ -3,6 +3,7 @@ package caveExplorer;
 public class WendyDotBoxPlayer{
 
 	static int input = CaveExplorer.in.nextInt();
+	public static int boxes = 0;
  
 	public static void playerTurn() {
 		// TODO Auto-generated method stub
@@ -35,11 +36,10 @@ public class WendyDotBoxPlayer{
 		if(WendyZhengRoom.board[row][col].sides[dir])
 		{
 			WendyZhengRoom.addSharedSide(row, col, dir);
-			if(WendyZhengRoom.board[row][col].testForSquare())
+			if(!WendyZhengRoom.board[row][col].testForSquare())
 			{
-				WendyZhengRoom.whosmove = "P";
+				WendyZhengRoom.whosmove = "Q";
 			}
-			WendyZhengRoom.whosmove = "Q";
 		}
 		else
 		{
