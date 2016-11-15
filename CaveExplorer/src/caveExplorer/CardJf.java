@@ -13,11 +13,11 @@ public class CardJf {
 		System.out.println(symbol+" and "+ numIdentifier);
 	}
 
-	public  String getSymbol() {
+	public String getSymbol() {
 		return symbol;
 	}
 
-	public  void setSymbol(String symbol) {
+	public void setSymbol(String symbol) {
 		CardJf.symbol = symbol;
 	}
 
