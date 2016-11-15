@@ -6,34 +6,35 @@ public class CardJf {
 	private static String numIdentifier;
 	
 	
-	public  CardJf(String num, String sym){
-		symbol=sym;
-		numIdentifier = num;
+	public CardJf(){
+		symbol = null;
+		numIdentifier = null;
 		flippedOpen =false;
-		System.out.println("in card");
+		System.out.println(symbol+" and "+ numIdentifier);
 	}
 
-	public static String getSymbol() {
+	public  String getSymbol() {
 		return symbol;
 	}
 
-	public static void setSymbol(String symbol) {
+	public void setSymbol(String symbol) {
 		CardJf.symbol = symbol;
 	}
 
-	public static boolean isFlippedOpen() {
+	public boolean isFlippedOpen() {
 		return flippedOpen;
 	}
 
-	public static void setFlippedOpen(boolean flippedOpen) {
+	public void setFlippedOpen(boolean flippedOpen) {
 		CardJf.flippedOpen = flippedOpen;
 	}
 
-	public  String getNumIdentifier() {
+	public String getNumIdentifier() {
+		System.out.println("the num is" +numIdentifier);
 		return numIdentifier;
 	}
 
-	public static void setNumIdentifier(String numIdentifier) {
+	public void setNumIdentifier(String numIdentifier) {
 		CardJf.numIdentifier = numIdentifier;
 	}
 }
