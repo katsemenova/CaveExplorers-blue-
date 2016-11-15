@@ -162,7 +162,7 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 		return (dir+2)%4;
 	}
 	
-	private static void addSharedSide(int row, int col, int side) {
+	public static void addSharedSide(int row, int col, int side) {
 		
 		board[row][col].addSide(side);
 		board[row][col].squareDec(whosmove);
