@@ -15,9 +15,12 @@ public class ZhengDotBoxAI{
 		do
 		{
 			completeSquare();
+			logicalMove();
 			randomMove();
 			
 		}while(completedSquare);
+		
+		WendyZhengRoom.whosmove = "P";
 	}
 	
 	private int[] getOpenSides(WZSquare square, int sides) {
