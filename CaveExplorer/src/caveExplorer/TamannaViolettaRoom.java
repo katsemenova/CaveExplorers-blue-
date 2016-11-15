@@ -14,7 +14,7 @@ public class TamannaViolettaRoom extends CaveRoomPd8 implements Playable{
 		super(description);
 		// TODO Auto-generated constructor stub
 	}
-
+	
 	private static final String[] INTRO = {"You have stumbled upon the dwellings of the Cheshire Cat.", "He occupies this part of Wonderland and will bother with you with riddles until you reach the end.", "Be wary, do not answer his riddles incorrectly or else he will send you backwards.", "He will only permit you to walk a certain amount of steps at a time."};
 	private static final String[] RECAP = {"Answer all of the riddle correctly or else you will never leave."};
 	
@@ -23,7 +23,7 @@ public class TamannaViolettaRoom extends CaveRoomPd8 implements Playable{
 	//boulder = "O"
 	//Alice = "A"
 	//cat = "M"
-	//cat does not appear behind Alice, only in front
+	//cat does not appear behind Alice, only in frontt
 	
 	public void play(){
 		if(played){
