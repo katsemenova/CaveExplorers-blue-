@@ -12,7 +12,7 @@ public class WendyDotBoxPlayer{
 		}
 		
 	}
-
+ 
 	private void playerTurn() {
 		// TODO Auto-generated method stub
 		System.out.println("Where is your next move?");

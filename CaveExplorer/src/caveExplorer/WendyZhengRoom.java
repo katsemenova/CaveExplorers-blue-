@@ -155,7 +155,7 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 					boardDis += "*";
 				}
 			}
-		}*/
+		}*/ 
 	}
 	
 	public static int oppositeDirection(int dir){
