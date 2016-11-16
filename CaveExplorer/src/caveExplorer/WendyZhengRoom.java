@@ -1,6 +1,6 @@
 package caveExplorer;
 
-public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
+public class WendyZhengRoom implements Playable{
 	//Person interaction
 	//AI interaction
 	//-board display dashed lines --> solid lines computer square: X player square: O 
@@ -10,7 +10,7 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 	//cheatcode
 	
 	private static final String[] SEQ_1 = {"You have been trapped by the Red Queen and her card soldiers!","The queen refuses to let you leave this room", "To unlock the doors and leave, you need to take over the room against the Red Queen's card guards"};
-	private static final String[] SEQ_2 = {"You have taken over the dimensional room and returned back to where you were", "Now that you have beat the Red Queen, the doors are now unlocked"};
+	private static final String[] SEQ_2 = {"You have won against the Queen", "Now that you have beat the Red Queen, the doors are now unlocked"};
 	private static final String[] SEQ_3 = {"You Lost!"};
 	private static final String[] SEQ_4 = {"You have already been in this room"};
 	private static boolean gameFinished = false;
@@ -20,13 +20,13 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 	private static WendyDotBoxPlayer player = new WendyDotBoxPlayer();
 	private static ZhengDotBoxAI queen = new ZhengDotBoxAI();
 	
-	public WendyZhengRoom(String description) {
-		super(description);
+	public WendyZhengRoom() {
+		//super(description);
 	}
 	
 	public void enter()
 	{
-		super.enter();
+		//super.enter();
 		System.out.println("You are locked in this room");
 		if(gameFinished == false)
 		{
@@ -43,7 +43,7 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 		else
 		{
 			readSequence(SEQ_4);
-			super.leave();
+			//super.leave();
 		}	
 	}
 	
