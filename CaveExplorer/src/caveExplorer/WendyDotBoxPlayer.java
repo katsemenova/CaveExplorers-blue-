@@ -13,10 +13,19 @@ public class WendyDotBoxPlayer implements Player{
 		{
 			System.out.println("Where is your next move's row?");
 			int row = input.nextInt();
-
+			while(row > WendyZhengRoom.board.length)
+			{
+				System.out.println("Please pick a row within 0 and 3");
+				row = input.nextInt();
+			}
 		
 			System.out.println("Where is your next move's column?");
 			int col = input.nextInt();
+			while(col > WendyZhengRoom.board[0].length)
+			{
+				System.out.println("Please pick a col within 0 and 3");
+				col = input.nextInt();
+			}
 	
 		
 			System.out.println("What is your next move's direction? (north,east,south,west)");
