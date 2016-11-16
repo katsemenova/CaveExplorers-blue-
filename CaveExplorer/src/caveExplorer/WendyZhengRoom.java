@@ -1,10 +1,18 @@
 package caveExplorer;
 
 public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
+	//Person interaction
+	//AI interaction
+	//-board display dashed lines --> solid lines computer square: X player square: O 
+	//-board = 4*4 
+	//inputs? row col Dir OR ask for row, ask for col, ask for dir
+	//logic + constraints: line drawn already? how to win? boxed? detection of gameover? keep scoring?
+	//cheatcode
 	
 	private static final String[] SEQ_1 = {"You have been trapped by the Red Queen and her card soldiers!","The queen refuses to let you leave this room", "To unlock the doors and leave, you need to take over the room against the Red Queen's card guards"};
 	private static final String[] SEQ_2 = {"You have taken over the dimensional room and returned back to where you were", "Now that you have beat the Red Queen, the doors are now unlocked"};
-	private static final String[] SEQ_3 = {"YOu have already been in this room"};
+	private static final String[] SEQ_3 = {"You Lost!"};
+	private static final String[] SEQ_4 = {"You have already been in this room"};
 	private static boolean gameFinished = false;
 	public static WZSquare[][] board = new WZSquare[4][4];
 	public static String whosmove = "P";
@@ -14,7 +22,6 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 	
 	public WendyZhengRoom(String description) {
 		super(description);
-		// TODO Auto-generated constructor stub
 	}
 	
 	public void enter()
@@ -24,18 +31,23 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 		if(gameFinished == false)
 		{
 			readSequence(SEQ_1);
+			initializeBoard();
+			
 			play();
-			readSequence(SEQ_2);
+			
+			if(checkPlayerWin())
+				readSequence(SEQ_2);
+			else
+				readSequence(SEQ_3);
 		}
 		else
 		{
-			readSequence(SEQ_3);
+			readSequence(SEQ_4);
 			super.leave();
-			
 		}	
 	}
 	
-	public void interpretAction(String input) {
+	/*public void interpretAction(String input) {
 		while(!isValid(input)){
 			CaveExplorer.print("Please enter 'w','a','s', or 'a'");
 			input = CaveExplorer.in.nextLine().toLowerCase();
@@ -58,38 +70,32 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 				return true; 
 		}
 		return false;
+	}*/
+	
+	private void initializeBoard()
+	{
+		for(int row=0;row<board.length;row++)
+			for(int col=0;col<board[row].length;col++)
+				board[row][col]=new WZSquare(row, col);
 	}
-
+	
 	@Override
 	public void play() {
-		// TODO Auto-generated method stub
 		
-		//Person interaction
-		//AI interaction
-		//board display dashed lines --> solid lines computer square: X player square: O
-		//logic 
-		//board = 4*4 
-		//inputs? row col Dir OR ask for row, ask for col, ask for dir
-		//logic + constraints: line drawn already? how to win? boxed? detection of gameover? keep scoring?
-		//cheatcode
-		
-		for(int row=0;row<board.length;row++){
-			for(int col=0;col<board[row].length;col++){
-				board[row][col]=new WZSquare(row, col);
-			}
-		} 
-		displayField(board);
-			// TODO Auto-generated method stub
+		while(!gameFinished)
+		{
+			displayField(board);
 			
-			if(WendyZhengRoom.whosmove.equals("P"))
-			{
-				player.playerTurn();
-			}
+			if(checkGameFinish())
+				gameFinished = true;
 			else
 			{
-				queen.makeMove();
+				if(WendyZhengRoom.whosmove.equals("P"))
+					player.makeMove();
+				else
+					queen.makeMove();
 			}
-			
+		}
 	}
 	public static void readSequence(String[] seq){
 		for(String s:seq){
@@ -175,8 +181,38 @@ public class WendyZhengRoom extends CaveRoomPd8 implements Playable{
 		}
 	}
 
-
+	private static boolean checkGameFinish()
+	{
+		for(int row=0;row<board.length;row++)
+			for(int col=0;col<board[row].length;col++)
+				if(!board[row][col].testForSquare())
+					return false;
+		
+		return true;
+	}
 	
+	private static int countSquares(String player)
+	{
+		int squares = 0;
+		
+		for(int row=0;row<board.length;row++)
+			for(int col=0;col<board[row].length;col++)
+				if(board[row][col].conquorer.equals(player))
+					squares++;
+				
+		return squares;
+	}
+	
+	private static boolean checkPlayerWin()
+	{
+		int playerSquares = countSquares("P");
+		int queenSquares = countSquares("Q");
+		
+		if(playerSquares > queenSquares)
+			return true;
+		
+		return false;
+	}
 }
 	
 

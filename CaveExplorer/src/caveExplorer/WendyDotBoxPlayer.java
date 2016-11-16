@@ -1,11 +1,11 @@
 package caveExplorer;
 
-public class WendyDotBoxPlayer{
+public class WendyDotBoxPlayer implements Player{
 
 	static int input = CaveExplorer.in.nextInt();
 	public static int boxes = 0;
  
-	public static void playerTurn() {
+	public void makeMove() {
 		// TODO Auto-generated method stub
 		while(WendyZhengRoom.whosmove.equals("P")) 
 		{
@@ -31,7 +31,7 @@ public class WendyDotBoxPlayer{
 	
 	}
 
-	private static void checkMove(int row, int col, int dir) {
+	private void checkMove(int row, int col, int dir) {
 		// TODO Auto-generated method stub
 		if(WendyZhengRoom.board[row][col].sides[dir])
 		{
@@ -45,11 +45,11 @@ public class WendyDotBoxPlayer{
 		{
 			System.out.println("This move is not available. Please try again");
 			CaveExplorer.in.nextLine();
-			playerTurn();
+			makeMove();
 		}
 	}
 
-	private static int whatDir(String input2) {
+	private int whatDir(String input2) {
 		// TODO Auto-generated method stub
 		if(input2.equals("north"))
 		{

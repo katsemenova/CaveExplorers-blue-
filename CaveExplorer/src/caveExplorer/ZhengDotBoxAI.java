@@ -1,6 +1,6 @@
 package caveExplorer;
 
-public class ZhengDotBoxAI{
+public class ZhengDotBoxAI implements Player{
 	
 	boolean completedSquare;
 	
