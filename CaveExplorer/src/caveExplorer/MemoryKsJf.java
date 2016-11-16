@@ -1,9 +1,7 @@
 package caveExplorer;
 
 public class MemoryKsJf implements Playable {
-
-	public boolean playerMove;
-	public boolean gameDone;
+	
 	public boolean userWon;
 	public static MemoryAiKat Ai;
 	public static MemorySetUpJf setup;
@@ -15,20 +13,19 @@ public class MemoryKsJf implements Playable {
 	
 	public void play(){
 		MemorySetUpJf.initialize();
-		gameDone=false;
-		playerMove=false;
+		
 		gameMode();
 	}
 
 	
 	private void gameMode() {
-		while(!gameDone){
-			if(playerMove){
-				//runJenniber's
-			}else{
-				//MemoryAiKat();
-			}
-		}
+//		while(!gameDone){
+//			if(playerMove){
+//				//runJenniber's
+//			}else{
+//				//MemoryAiKat();
+//			}
+//		}
 	}
 	public void enter(){
 		//super.enter(); //done to make sure that the X is moved in the actual thing
@@ -38,7 +35,7 @@ public class MemoryKsJf implements Playable {
 		
 	}
 	
-	private boolean isValid(String input) {
+	protected static boolean isValid(String input) {
 		String[] validKeys={"1","2","3","4","5","6","7","8","9","10","11","12"};
 		String ignore="";
 		for(int i=0;i<13;i++){
