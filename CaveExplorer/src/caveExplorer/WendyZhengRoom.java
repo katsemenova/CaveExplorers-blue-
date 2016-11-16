@@ -22,29 +22,24 @@ public class WendyZhengRoom implements Playable{
 	
 	public WendyZhengRoom() {
 		//super(description);
+		//enter();
+
 	}
 	
-	public void enter()
+	public void play()
 	{
 		//super.enter();
 		System.out.println("You are locked in this room");
-		if(gameFinished == false)
-		{
-			readSequence(SEQ_1);
-			initializeBoard();
-			
-			play();
-			
-			if(checkPlayerWin())
-				readSequence(SEQ_2);
-			else
-				readSequence(SEQ_3);
-		}
+
+		readSequence(SEQ_1);
+		initializeBoard();
+		
+		playGame();
+		
+		if(checkPlayerWin())
+			readSequence(SEQ_2);
 		else
-		{
-			readSequence(SEQ_4);
-			//super.leave();
-		}	
+			readSequence(SEQ_3);	
 	}
 	
 	/*public void interpretAction(String input) {
@@ -79,8 +74,7 @@ public class WendyZhengRoom implements Playable{
 				board[row][col]=new WZSquare(row, col);
 	}
 	
-	@Override
-	public void play() {
+	public void playGame() {
 		
 		while(!gameFinished)
 		{
@@ -152,6 +146,7 @@ public class WendyZhengRoom implements Playable{
 				
 				display += "\n";	
 			}
+		System.out.println("The Queen had made a move");
 		System.out.println(display);
 		 
 	}
@@ -187,7 +182,7 @@ public class WendyZhengRoom implements Playable{
 			for(int col=0;col<board[row].length;col++)
 				if(!board[row][col].testForSquare())
 					return false;
-		
+		 
 		return true;
 	}
 	

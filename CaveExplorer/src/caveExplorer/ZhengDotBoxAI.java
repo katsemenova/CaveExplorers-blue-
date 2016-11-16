@@ -78,7 +78,7 @@ public class ZhengDotBoxAI implements Player{
 				addSide(randRow, randCol, sides);
 				madeMove = true;
 			}
-				
+				 
 		}while(!madeMove);
 		
 		completedSquare = false;
@@ -92,6 +92,7 @@ public class ZhengDotBoxAI implements Player{
 	private void addSide(int row, int col, int sides)
 	{
 		int[] targetSides = getOpenSides(WendyZhengRoom.board[row][col], sides);
+		System.out.println("The queen added" + row + col + targetSides[0]);
 		WendyZhengRoom.addSharedSide(row, col, targetSides[0]);
 	}
 }

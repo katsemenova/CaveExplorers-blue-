@@ -22,10 +22,10 @@ public class CaveExplorer {
 
 		caves[4][4].setConnection(CaveRoomPd8.EAST, caves[4][5],new Door());
 		//caves[3][4]=new EventRoom("This is where you found the first key", new MemoryKsJf());
+		caves[4][5]=new EventRoom("This is where you found the map", new GameStartEvent());
 		caves[2][5]=new EventRoom("This is where you found the second key", new WendyZhengRoom());
 		//caves[1][0]=new EventRoom("This is where you found the third key", new );
 		//caves[0][1]=new EventRoom("This is the exit", new );
-		caves[4][5]=new EventRoom("This is where you found the map", new GameStartEvent());
 		currentRoom.enter();
 		inventory=new InventoryNockles(caves);
 		startExploring();
