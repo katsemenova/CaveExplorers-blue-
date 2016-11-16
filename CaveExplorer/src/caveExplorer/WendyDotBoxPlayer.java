@@ -1,8 +1,10 @@
 package caveExplorer;
 
+import java.util.Scanner;
+
 public class WendyDotBoxPlayer implements Player{
 
-	static int input = CaveExplorer.in.nextInt();
+	public static Scanner input = new Scanner(System.in);
 	public static int boxes = 0;
  
 	public void makeMove() {
@@ -10,11 +12,11 @@ public class WendyDotBoxPlayer implements Player{
 		while(WendyZhengRoom.whosmove.equals("P")) 
 		{
 			System.out.println("Where is your next move's row?");
-			int row = input;
+			int row = input.nextInt();
 
 		
 			System.out.println("Where is your next move's column?");
-			int col = input;
+			int col = input.nextInt();
 	
 		
 			System.out.println("What is your next move's direction? (north,east,south,west)");
@@ -33,7 +35,7 @@ public class WendyDotBoxPlayer implements Player{
 
 	private void checkMove(int row, int col, int dir) {
 		// TODO Auto-generated method stub
-		if(WendyZhengRoom.board[row][col].sides[dir])
+		if(!WendyZhengRoom.board[row][col].sides[dir])
 		{
 			WendyZhengRoom.addSharedSide(row, col, dir);
 			if(!WendyZhengRoom.board[row][col].testForSquare())
