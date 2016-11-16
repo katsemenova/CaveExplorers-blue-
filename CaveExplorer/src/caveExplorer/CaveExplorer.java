@@ -7,9 +7,6 @@ public class CaveExplorer {
 	public static Scanner in;
 	public static CaveRoomPd8 currentRoom;
 	public static InventoryNockles inventory;
-//	public static MemoryKsJf miniGameOne; 
-//	public static -name- miniGameTwo;wendyzheng
-//	public static -name- miniGameThree;tammana violetta
 	
 	public static void main(String[] args){
 		in=new Scanner(System.in);
