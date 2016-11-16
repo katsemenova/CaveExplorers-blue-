@@ -78,7 +78,7 @@ public class ZhengDotBoxAI implements Player{
 				addSide(randRow, randCol, sides);
 				madeMove = true;
 			}
-				
+				 
 		}while(!madeMove);
 		
 		completedSquare = false;

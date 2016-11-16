@@ -182,7 +182,7 @@ public class WendyZhengRoom implements Playable{
 			for(int col=0;col<board[row].length;col++)
 				if(!board[row][col].testForSquare())
 					return false;
-		
+		 
 		return true;
 	}
 	
