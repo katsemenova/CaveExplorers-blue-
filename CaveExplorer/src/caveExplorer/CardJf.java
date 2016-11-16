@@ -1,16 +1,15 @@
 package caveExplorer;
 
 public class CardJf {
-	private static String symbol;
-	private static boolean flippedOpen;
-	private static String numIdentifier;
+	private String symbol;
+	private boolean flippedOpen;
+	private String numIdentifier;
 	
-	
-	public CardJf(){
-		symbol = null;
-		numIdentifier = null;
+	public CardJf(String symbol,String number){
+		this.symbol = symbol;
+		this.numIdentifier = number;
 		flippedOpen =false;
-		System.out.println(symbol+" and "+ numIdentifier);
+		//System.out.println(symbol+" and "+ numIdentifier);
 	}
 
 	public String getSymbol() {
@@ -18,7 +17,7 @@ public class CardJf {
 	}
 
 	public void setSymbol(String symbol) {
-		CardJf.symbol = symbol;
+		this.symbol = symbol;
 	}
 
 	public boolean isFlippedOpen() {
@@ -26,7 +25,7 @@ public class CardJf {
 	}
 
 	public void setFlippedOpen(boolean flippedOpen) {
-		CardJf.flippedOpen = flippedOpen;
+		this.flippedOpen = flippedOpen;
 	}
 
 	public String getNumIdentifier() {
@@ -35,6 +34,6 @@ public class CardJf {
 	}
 
 	public void setNumIdentifier(String numIdentifier) {
-		CardJf.numIdentifier = numIdentifier;
+		this.numIdentifier = numIdentifier;
 	}
 }
