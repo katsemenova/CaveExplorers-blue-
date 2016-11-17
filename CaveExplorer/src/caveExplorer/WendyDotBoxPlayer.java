@@ -72,6 +72,10 @@ public class WendyDotBoxPlayer implements Player{
 			{
 				WendyZhengRoom.whosmove = "Q"; 
 			}
+			else
+			{
+				WendyZhengRoom.displayField(WendyZhengRoom.board);
+			}
 		}
 		else
 		{
