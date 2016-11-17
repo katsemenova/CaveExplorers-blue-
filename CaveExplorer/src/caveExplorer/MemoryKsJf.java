@@ -5,7 +5,6 @@ public class MemoryKsJf implements Playable {
 	public boolean userWon;
 	public static MemoryAiKat Ai;
 	public static MemorySetUpJf setup;
-	
 	public MemoryKsJf() {
 			
 		
@@ -17,7 +16,17 @@ public class MemoryKsJf implements Playable {
 		gameMode();
 	}
 
-	
+	public static CardJf getCard(int number){
+		for(int row=0;row<MemorySetUpJf.cards.length;row++){
+			for(int col=0;col<MemorySetUpJf.cards[row].length;col++){
+				int tempCard=Integer.parseInt(MemorySetUpJf.cards[row][col].getNumIdentifier());
+				if(number==tempCard){
+					return MemorySetUpJf.cards[row][col];
+				}
+			}
+		}
+		return null;
+	}
 	private void gameMode() {
 //		while(!gameDone){
 //			if(playerMove){
