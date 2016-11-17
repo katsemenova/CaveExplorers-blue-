@@ -5,6 +5,8 @@ public class MemoryKsJf implements Playable {
 	public boolean userWon;
 	public static MemoryAiKat Ai;
 	public static MemorySetUpJf setup;
+	public static CardJf[][] cards;
+	
 	public MemoryKsJf() {
 			
 		
@@ -15,6 +17,7 @@ public class MemoryKsJf implements Playable {
 		
 		gameMode();
 	}
+	
 
 	public static CardJf getCard(int number){
 		for(int row=0;row<MemorySetUpJf.cards.length;row++){
