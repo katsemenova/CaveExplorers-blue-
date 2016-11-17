@@ -17,6 +17,21 @@ public class MemoryKsJf implements Playable {
 		gameMode();
 	}
 	
+	public void playScript(){
+		readSequence(SEQUENCE_1);
+		System.out.println("Are you ready?");
+		while(CaveExplorer.in.nextLine().toLowerCase().indexOf("yes")<0){
+			CaveExplorer.print("Hmm. I will not let you continue un");
+		}
+
+	}
+	public static void readSequence(String[] seq){
+		for(String s:seq){
+			CaveExplorer.print(s);
+			CaveExplorer.print("-----Press Enter------");
+			CaveExplorer.in.nextLine();
+		}
+	}
 
 	public static CardJf getCard(int number){
 		for(int row=0;row<MemorySetUpJf.cards.length;row++){
