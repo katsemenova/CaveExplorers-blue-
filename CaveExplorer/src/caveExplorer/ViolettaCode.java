@@ -17,32 +17,71 @@ public class ViolettaCode {
 
 	private static void moveAlice(int numberOfMoves) {
 		while(numberOfMoves > 0){
-			if(right && AliceCol < display[0].length && !display[AliceRow][AliceCol].equals("O")){
+			if(right && AliceCol < display[0].length - 1 && !display[AliceRow][AliceCol + 1].equals("O")){
 				display[AliceRow][AliceCol] = ">";
 				AliceCol++; //is this right
+				display[AliceRow][AliceCol] = "A";
 			}
-			else if(AliceCol > 0 && !display[AliceRow][AliceCol].equals("O")){
+			else if(!right && AliceCol > 0 && !display[AliceRow][AliceCol - 1].equals("O")){
 				display[AliceRow][AliceCol] = "<";
 				AliceCol--; //is this right
+				display[AliceRow][AliceCol] = "A";
 			}
 			else{
 				display[AliceRow][AliceCol] = "v";
 				AliceRow++;
-				right = true;
+				right = !right;
+				display[AliceRow][AliceCol] = "A";
 			}
 			if(display[AliceRow][AliceCol].equals("M")){
-				if(!TamannaCatRiddle()){
-					moveAliceBack();
-					numberOfMoves = 0;
-				}
+//				if(!TamannaCatRiddle()){
+//					moveAliceBack();
+//					numberOfMoves = 0;
+//				}
+				System.out.println("temp cat code");
 			}
-			numberOfMoves--; 
+			if(TamannaViolettaRoom.endGame()){
+				//drawGrid();
+				System.out.println("You've reached the end. Congrats loser");
+				numberOfMoves = 0;
+			}
+			else numberOfMoves--; 
 		}
+		TamannaViolettaRoom.drawGrid();
 	}
 
 
 	private static void moveAliceBack() {
-		// TODO Auto-generated method stub
+		int tempRow = AliceRow / 2; 
+		int tempCol = AliceCol / 2;
+		for(int row = AliceRow; row > tempRow; row--){
+			for(int col = 0; col < display[row].length; col++){
+				if(!display[row][col].equals("O") && !display[row][col].equals("M")){
+					display[row][col] = " ";
+				}
+			}
+		}
+		if(tempRow % 2 == 0){
+			right = true;
+		}
+		else{
+			right = false;
+		}
+		if(right){
+			for(int col = display[tempRow].length; col > tempCol; col--){
+				if(!display[tempRow][col].equals("O") && !display[tempRow][col].equals("M")){
+					display[tempRow][col] = " ";
+				}
+			}
+		}
+		else{
+			for(int col = 0; col < tempCol; col++){
+				if(!display[tempRow][col].equals("O") && !display[tempRow][col].equals("M")){
+					display[tempRow][col] = " ";
+				}
+			}
+		}
+		
 		
 	}
 
