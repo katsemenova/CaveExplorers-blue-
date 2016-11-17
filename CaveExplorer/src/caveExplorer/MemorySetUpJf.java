@@ -4,7 +4,7 @@ public class MemorySetUpJf extends MemoryKsJf {
 	
 	public static String[] symbols={"#","#","@","@","*","*","?","?","!","!","%","%"};
 	private static String map[][];
-	private
+	
 	
 	public MemorySetUpJf() {
 		
