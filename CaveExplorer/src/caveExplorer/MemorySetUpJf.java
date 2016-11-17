@@ -2,9 +2,9 @@ package caveExplorer;
 
 public class MemorySetUpJf extends MemoryKsJf {
 	
-	public static CardJf[][] cards;
 	public static String[] symbols={"#","#","@","@","*","*","?","?","!","!","%","%"};
 	private static String map[][];
+	private
 	
 	public MemorySetUpJf() {
 		
