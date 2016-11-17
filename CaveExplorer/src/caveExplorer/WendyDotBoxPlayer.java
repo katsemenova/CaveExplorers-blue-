@@ -70,7 +70,7 @@ public class WendyDotBoxPlayer implements Player{
 			
 			if(!WendyZhengRoom.board[row][col].testForSquare())
 			{
-				WendyZhengRoom.whosmove = "Q";
+				WendyZhengRoom.whosmove = "Q"; 
 			}
 		}
 		else
