@@ -10,7 +10,7 @@ public class WendyZhengRoom implements Playable{
 	//cheatcode
 	
 	private static final String[] SEQ_1 = {"You have been trapped by the Red Queen and her card soldiers!","The queen refuses to let you leave this room", "To unlock the doors and leave, you need to take over the room against the Red Queen's card guards"};
-	private static final String[] SEQ_2 = {"You have won against the Queen", "Now that you have beat the Red Queen, the doors are now unlocked"};
+	private static final String[] SEQ_2 = {"You have won against the Queen", "Now that you have beat the Red Queen, the doors are now unlocked","And you have found the 2nd key"};
 	private static final String[] SEQ_3 = {"You Lost!"};
 	private static final String[] SEQ_4 = {"You have already been in this room"};
 	private static boolean gameFinished = false;
@@ -23,7 +23,6 @@ public class WendyZhengRoom implements Playable{
 	public WendyZhengRoom() {
 		//super(description);
 		//enter();
-
 	}
 	
 	public void play()
@@ -40,6 +39,7 @@ public class WendyZhengRoom implements Playable{
 			readSequence(SEQ_2);
 		else
 			readSequence(SEQ_3);	
+		
 	}
 	
 	/*public void interpretAction(String input) {
@@ -90,6 +90,8 @@ public class WendyZhengRoom implements Playable{
 					queen.makeMove();
 			}
 		}
+		
+		
 	}
 	public static void readSequence(String[] seq){
 		for(String s:seq){
@@ -146,9 +148,8 @@ public class WendyZhengRoom implements Playable{
 				
 				display += "\n";	
 			}
-		System.out.println("The Queen had made a move");
 		System.out.println(display);
-		 
+		//System.out.println("The Queen had made a move");
 	}
 	
 	public static int oppositeDirection(int dir){
