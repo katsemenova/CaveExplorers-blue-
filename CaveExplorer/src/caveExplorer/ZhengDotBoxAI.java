@@ -15,7 +15,7 @@ public class ZhengDotBoxAI implements Player{
 		do
 		{
 			completeSquare();
-			logicalMove();
+			//logicalMove();
 			randomMove();
 			
 		}while(completedSquare);
@@ -73,7 +73,7 @@ public class ZhengDotBoxAI implements Player{
 			
 			int sides = numberOfSides(WendyZhengRoom.board[randRow][randCol]);
 			
-			if(sides != 0)
+			if(sides != 4)
 			{
 				addSide(randRow, randCol, sides);
 				madeMove = true;
@@ -86,13 +86,47 @@ public class ZhengDotBoxAI implements Player{
 	
 	private void logicalMove()
 	{
+		boolean madeMove = false;
+		int tries = 0;
 		
+		do
+		{
+			int randRow = (int)(Math.random() * WendyZhengRoom.board.length);
+			int randCol = (int)(Math.random() * WendyZhengRoom.board[0].length);
+			
+			int sides = numberOfSides(WendyZhengRoom.board[randRow][randCol]);
+			
+			if(sides != 4 || sides != 2)
+			{
+				addSide(randRow, randCol, sides);
+				madeMove = true;
+			}
+			else
+				tries++;
+				 
+		}while(!madeMove || tries > 16);
+		
+		completedSquare = false;
 	}
 	
 	private void addSide(int row, int col, int sides)
 	{
 		int[] targetSides = getOpenSides(WendyZhengRoom.board[row][col], sides);
-		System.out.println("The queen added" + row + col + targetSides[0]);
+		System.out.println("The queen added a " + toDirection(targetSides[0]) + " card to row: " + row + ", col: " +col);
 		WendyZhengRoom.addSharedSide(row, col, targetSides[0]);
+	}
+	
+	private String toDirection(int dir)
+	{
+		if(dir == 0)
+			return "North";
+		if(dir == 1)
+			return "East";
+		if(dir == 2)
+			return "South";
+		if(dir == 3)
+			return "West";
+		
+		return null;
 	}
 }

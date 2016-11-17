@@ -14,7 +14,6 @@ public class MemoryKsJf implements Playable {
 	
 	public void play(){
 		MemorySetUpJf.initialize();
-		
 		gameMode();
 	}
 	
