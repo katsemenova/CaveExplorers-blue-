@@ -45,13 +45,7 @@ public class MemoryKsJf implements Playable {
 		return null;
 	}
 	private void gameMode() {
-//		while(!gameDone){
-//			if(playerMove){
-//				//runJenniber's
-//			}else{
-//				//MemoryAiKat();
-//			}
-//		}
+
 	}
 	public void enter(){
 		//super.enter(); //done to make sure that the X is moved in the actual thing
@@ -72,23 +66,5 @@ public class MemoryKsJf implements Playable {
 					return true;
 			}
 		}
-		
 		return false;
 	}
-	
-//	public static int rowNum(int blockNum, int rowLength){
-//		int row=blockNum/rowLength;
-//		if(blockNum%rowLength==0){
-//			row--;
-//		}
-//		return row;
-//	}
-//	public static int colNum(int blockNum, int colLength){
-//		int col=blockNum%colLength;
-//		if(col==0){
-//			col=colLength;
-//		}
-//		col--;
-//		return col;
-//	}
-}
