@@ -13,7 +13,7 @@ public class WendyZhengRoom implements Playable{
 	private static final String[] SEQ_2 = {"You have won against the Queen", "Now that you have beat the Red Queen, the doors are now unlocked","And you have found the 2nd key"};
 	private static final String[] SEQ_3 = {"You Lost!"};
 	private static final String[] SEQ_4 = {"You have already been in this room"};
-	private static boolean gameFinished = false;
+	public static boolean gameFinished = false;
 	public static WZSquare[][] board = new WZSquare[4][4];
 	public static String whosmove = "P";
 	
