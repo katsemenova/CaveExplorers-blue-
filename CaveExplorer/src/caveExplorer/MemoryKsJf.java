@@ -6,6 +6,7 @@ public class MemoryKsJf implements Playable {
 	public static MemoryAiKat Ai;
 	public static MemorySetUpJf setup;
 	public static CardJf[][] cards;
+	private static final String[] IntroGame={"Hahaha! Welcome Alice! You're finally here! I've been waiting for you.","If you want to continue exploring the castle, you have to play a game with me."};
 	
 	public MemoryKsJf() {
 			
