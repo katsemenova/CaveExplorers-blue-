@@ -16,7 +16,6 @@ public class ZhengDotBoxAI implements Player{
 		{
 			completeSquare();
 			logicalMove();
-			randomMove();
 			
 		}while(completedSquare);
 		
@@ -80,8 +79,6 @@ public class ZhengDotBoxAI implements Player{
 			}
 				 
 		}while(!madeMove);
-		
-		completedSquare = false;
 	}
 	
 	private void logicalMove()
@@ -105,6 +102,9 @@ public class ZhengDotBoxAI implements Player{
 				tries++;
 				 
 		}while(!madeMove || tries > 16);
+		
+		if(tries > 16)
+			randomMove();
 		
 		completedSquare = false;
 	}
