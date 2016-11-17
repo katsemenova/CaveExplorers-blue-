@@ -4,7 +4,6 @@ public class MemorySetUpJf extends MemoryKsJf {
 	
 	public static String[] symbols={"#","#","@","@","*","*","?","?","!","!","%","%"};
 	private static String map[][];
-	private
 	
 	public MemorySetUpJf() {
 		
@@ -16,10 +15,19 @@ public class MemorySetUpJf extends MemoryKsJf {
 	}
 	public static void updateMap(){
 		System.out.println("map");
-		map = new String[3][4];
-		for(int row=0;row<cards.length;row++){
-			for(int col=0;col<cards[row].length;col++){
-				 map[row][col]="| "+cards[row][col].getNumIdentifier()+" |  ";
+		map = new String[7][4];
+		int cardRow = 0;
+		for(int row=0;row<map.length;row++){
+			for(int col=0;col<map[row].length;col++){
+				if(row%2==1){
+					map[row][col]= getContent(cardRow,col)+" |";
+				}
+				else{
+					map[row][col]= "----";
+				}
+			}
+			if(row%2==1){
+				cardRow++;
 			}
 		}
 	}
@@ -29,7 +37,7 @@ public class MemorySetUpJf extends MemoryKsJf {
 				
 				System.out.print(col);
 			}
-			System.out.println();
+			System.out.println("");
 		}
 	}
 	private static void drawCards() {
@@ -59,4 +67,17 @@ public class MemorySetUpJf extends MemoryKsJf {
 		return result;
 		
 	}
+	
+	public static String getContent(int row, int col){
+		if(cards[row][col].isFlippedOpen()){
+			return cards[row][col].getSymbol();
+		}
+		else if(cards[row][col].getNumIdentifier().length()==1){
+			return " "+cards[row][col].getNumIdentifier();
+		}
+		else{
+			return cards[row][col].getNumIdentifier();
+		}
+	}
+	
 }
