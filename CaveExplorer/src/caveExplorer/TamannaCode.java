@@ -6,7 +6,7 @@ public class TamannaCode {
 	public static String[][] display = TamannaViolettaRoom.contents;
 	public static final int ROWS = 10;
 	public static final int COLUMNS = 10;
-	public static final int NUMBER_OF_BOULDERS = 2;
+	public static final int NUMBER_OF_BOULDERS = 6;
 	
 	public static void placeBoulders(){
 		//display = new String[ROWS][COLUMNS];

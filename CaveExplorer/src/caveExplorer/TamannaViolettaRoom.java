@@ -87,6 +87,7 @@ public class TamannaViolettaRoom implements Playable{
 				}
 			}
 		}
+		System.out.print("| \n");
 	}
 	
 	public static void tvCheatCode(){
