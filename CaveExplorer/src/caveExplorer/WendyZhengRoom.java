@@ -177,7 +177,7 @@ public class WendyZhengRoom implements Playable{
 		}
 	}
 
-	private static boolean checkGameFinish()
+	public static boolean checkGameFinish()
 	{
 		for(int row=0;row<board.length;row++)
 			for(int col=0;col<board[row].length;col++)

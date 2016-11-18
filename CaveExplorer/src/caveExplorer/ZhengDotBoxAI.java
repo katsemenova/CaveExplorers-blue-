@@ -2,7 +2,8 @@ package caveExplorer;
 
 public class ZhengDotBoxAI implements Player{
 	
-	boolean completedSquare;
+	private boolean completedSquare;
+	private boolean madeMove;
 	
 	public ZhengDotBoxAI() {
 		
@@ -10,20 +11,30 @@ public class ZhengDotBoxAI implements Player{
 	
 	public void makeMove() 
 	{
-		completedSquare = false;
-		
 		do
 		{
-			completeSquare();
-			//logicalMove();
-			randomMove();
+			completedSquare = false;
+			
+			if(!WendyZhengRoom.checkGameFinish())
+			{
+				madeMove = false;
+			
+				completeSquare();
+				
+				if(!madeMove)
+					logicalMove();
+				if(!madeMove)
+					randomMove();
+			}
 			
 		}while(completedSquare);
 		
 		WendyZhengRoom.whosmove = "P";
 	}
 	
-	private int[] getOpenSides(WZSquare square, int sides) {
+	private int[] getOpenSides(WZSquare square) {
+		
+		int sides = numberOfSides(square);
 		int[] openSides = new int[4-sides];
 		int idx = 0;
 		for(int i = 0; i < square.sides.length; i++)
@@ -55,8 +66,10 @@ public class ZhengDotBoxAI implements Player{
 				
 				if(sides == 3)
 				{
-					addSide(row, col, sides);
+					addSide(row, col);
 					completedSquare = true;
+					
+					System.out.println("complete");
 					break;
 				}
 			}
@@ -75,13 +88,13 @@ public class ZhengDotBoxAI implements Player{
 			
 			if(sides != 4)
 			{
-				addSide(randRow, randCol, sides);
+				addSide(randRow, randCol);
 				madeMove = true;
+				
+				System.out.println("random");
 			}
 				 
 		}while(!madeMove);
-		
-		completedSquare = false;
 	}
 	
 	private void logicalMove()
@@ -96,24 +109,30 @@ public class ZhengDotBoxAI implements Player{
 			
 			int sides = numberOfSides(WendyZhengRoom.board[randRow][randCol]);
 			
-			if(sides != 4 || sides != 2)
+			if(sides != 4 && sides != 2)
 			{
-				addSide(randRow, randCol, sides);
+				addSide(randRow, randCol);
 				madeMove = true;
+				
+				System.out.println("logical");
 			}
 			else
+			{
 				tries++;
-				 
-		}while(!madeMove || tries > 16);
-		
-		completedSquare = false;
+				
+				if(tries > 20)
+					madeMove = true;
+			}
+		}while(!madeMove);
 	}
 	
-	private void addSide(int row, int col, int sides)
+	private void addSide(int row, int col)
 	{
-		int[] targetSides = getOpenSides(WendyZhengRoom.board[row][col], sides);
+		int[] targetSides = getOpenSides(WendyZhengRoom.board[row][col]);
+		System.out.println(targetSides.length);
 		System.out.println("The queen added a " + toDirection(targetSides[0]) + " card to row: " + row + ", col: " +col);
 		WendyZhengRoom.addSharedSide(row, col, targetSides[0]);
+		madeMove = true;
 	}
 	
 	private String toDirection(int dir)
