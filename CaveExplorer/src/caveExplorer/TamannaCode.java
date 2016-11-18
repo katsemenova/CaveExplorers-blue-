@@ -3,27 +3,28 @@ package caveExplorer;
 public class TamannaCode {
 	public static int AliceRow = 0;
 	public static int AliceCol = 0;
-	public static String[][] display;
+	public static String[][] display = TamannaViolettaRoom.contents;
 	public static final int ROWS = 10;
 	public static final int COLUMNS = 10;
 	public static final int NUMBER_OF_BOULDERS = 2;
 	
 	public static void placeBoulders(){
-		display = new String[ROWS][COLUMNS];
+		//display = new String[ROWS][COLUMNS];
 	
 		int counter = 0;
 		while(counter < NUMBER_OF_BOULDERS){
 		    int randRow = (int)(Math.random() * 8) + 1; //1-8
 		    int randColumn = (int)(Math.random() * 9) + 1; //1-9
-		    if (display[randRow][randColumn] == " ") {
+		    if (display[randRow][randColumn] == " "){
 		        display[randRow][randColumn] = "O";
 		        counter++;
 		    }
+		    
 		}
 		placeCats();
 	}
 
-	private static void placeCats() {
+	public static void placeCats() {
 		/*
 		 the game starts with boulders already in place
 		 place one cat for now

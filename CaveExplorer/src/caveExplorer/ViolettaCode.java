@@ -3,7 +3,7 @@ package caveExplorer;
 public class ViolettaCode {
 	public static int AliceRow = 0;
 	public static int AliceCol = 0;
-	public static String[][] display;
+	public static String[][] display = TamannaViolettaRoom.contents;
 	public static boolean right = true;
 	
 	public static void playAlice(){
@@ -19,35 +19,40 @@ public class ViolettaCode {
 		while(numberOfMoves > 0){
 			if(right && AliceCol < display[0].length - 1 && !display[AliceRow][AliceCol + 1].equals("O")){
 				display[AliceRow][AliceCol] = ">";
-				AliceCol++; //is this right
-				display[AliceRow][AliceCol] = "A";
+				AliceCol++; 
 			}
 			else if(!right && AliceCol > 0 && !display[AliceRow][AliceCol - 1].equals("O")){
 				display[AliceRow][AliceCol] = "<";
-				AliceCol--; //is this right
-				display[AliceRow][AliceCol] = "A";
+				AliceCol--; 
 			}
 			else{
 				display[AliceRow][AliceCol] = "v";
 				AliceRow++;
 				right = !right;
-				display[AliceRow][AliceCol] = "A";
 			}
 			if(display[AliceRow][AliceCol].equals("M")){
-//				if(!TamannaCatRiddle()){
-//					moveAliceBack();
-//					numberOfMoves = 0;
-//				}
+				if(!TamannaCatRiddle()){
+					moveAliceBack();
+					numberOfMoves = 0;
+				}
 				System.out.println("temp cat code");
 			}
-			if(TamannaViolettaRoom.endGame()){
+			
+			if(TamannaViolettaRoom.endGame(AliceRow, AliceCol)){
 				//drawGrid();
 				System.out.println("You've reached the end. Congrats loser");
 				numberOfMoves = 0;
 			}
-			else numberOfMoves--; 
+			else{
+				display[AliceRow][AliceCol] = "A";
+				numberOfMoves--; 
+			}
 		}
 		TamannaViolettaRoom.drawGrid();
+		
+		//this is so that Tamanna can access Alice's location
+		TamannaViolettaRoom.MainAliceCol = AliceCol;
+		TamannaViolettaRoom.MainAliceRow = AliceRow;
 	}
 
 
@@ -68,7 +73,7 @@ public class ViolettaCode {
 			right = false;
 		}
 		if(right){
-			for(int col = display[tempRow].length; col > tempCol; col--){
+			for(int col = display[tempRow].length - 1; col > tempCol; col--){
 				if(!display[tempRow][col].equals("O") && !display[tempRow][col].equals("M")){
 					display[tempRow][col] = " ";
 				}
@@ -81,7 +86,8 @@ public class ViolettaCode {
 				}
 			}
 		}
-		
+		AliceRow = tempRow;
+		AliceCol = tempCol;
 		
 	}
 

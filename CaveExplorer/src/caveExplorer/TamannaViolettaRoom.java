@@ -4,15 +4,15 @@ package caveExplorer;
 //import arrays.Playable;
 //import arrays.coordinates;
 
-public class TamannaViolettaRoom extends CaveRoomPd8 implements Playable{
+public class TamannaViolettaRoom implements Playable{
 	
 	public static boolean played = false;
-	public static int AliceRow = 0;
-	public static int AliceCol = 0;
+	public static int MainAliceRow = 0; //i renamed them main to distinguish from my use of them in my code
+	public static int MainAliceCol = 0;
+	public static boolean endGame = false;
 	
-	public TamannaViolettaRoom(String description) {
-		super(description);
-		// TODO Auto-generated constructor stub
+	public TamannaViolettaRoom(){
+		
 	}
 	
 	private static final String[] INTRO = {"You have stumbled upon the dwellings of the Cheshire Cat.", "He occupies this part of Wonderland and will bother with you with riddles until you reach the end.", "Be wary, do not answer his riddles incorrectly or else he will send you backwards.", "He will only permit you to walk a certain amount of steps at a time."};
@@ -26,7 +26,7 @@ public class TamannaViolettaRoom extends CaveRoomPd8 implements Playable{
 	//cat does not appear behind Alice, only in frontt
 	
 	public void play(){
-		if(played){
+		if(!played){
 			readSequence(INTRO);
 			played = true;
 		}
@@ -35,12 +35,15 @@ public class TamannaViolettaRoom extends CaveRoomPd8 implements Playable{
 		}
 		contents = new String[10][10];
 		initializeGrid();
+		
+		TamannaCode.placeBoulders();
+		//TamannaCode.placeCats();
 		drawGrid();
 	
 		//Tamanna.class.place boulders
 		//Tamanna place first cat
 		
-		while(!endGame()){
+		while(!endGame){
 			ViolettaCode.playAlice();
 		}
 	
@@ -90,8 +93,8 @@ public class TamannaViolettaRoom extends CaveRoomPd8 implements Playable{
 		
 	}
 	
-	public static boolean endGame(){
-		if(AliceCol == 0 && AliceRow == 9){
+	public static boolean endGame(int row, int col){
+		if(col == 0 && row == 9){
 			return true;
 		}
 		return false;
