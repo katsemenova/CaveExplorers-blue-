@@ -91,7 +91,6 @@ public class ViolettaCode {
 		
 	}
 
-
 	private static boolean TamannaCatRiddle() {
 		// TODO Auto-generated method stub
 		return false;
