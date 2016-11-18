@@ -31,8 +31,6 @@ public class TamannaCode {
 	};
 	
 	public static void placeBoulders(){
-		//display = new String[ROWS][COLUMNS];
-	
 		int counter = 0;
 		while(counter < NUMBER_OF_BOULDERS){
 		    int randRow = (int)(Math.random() * 8) + 1; //1-8
@@ -41,7 +39,6 @@ public class TamannaCode {
 		        display[randRow][randColumn] = "O";
 		        counter++;
 		    }
-		    
 		}
 		placeCats();
 	}
@@ -56,7 +53,7 @@ public class TamannaCode {
 		
 		int randRow = (int)(Math.random() * 3) + 1; //1-3
 		int randColumn = (int)(Math.random() * 8) + 1; //1-8
-		if (display[randRow][randColumn].equals(" ") && !(display[randRow][randColumn].equals("O"))) {
+		if (display[randRow][randColumn].equals(" ") && !(display[randRow][randColumn].equals("O"))){
 			display[randRow][randColumn] = "M";
 		}
 	}
