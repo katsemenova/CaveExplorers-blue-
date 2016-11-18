@@ -6,6 +6,7 @@ public class TamannaCode {
 	static String user;
 
 	public static String[][] display = TamannaViolettaRoom.contents;
+
 	public static final int NUMBER_OF_BOULDERS = 6;
 	private static final String[] ENCOUNTER = {"Oh no, you have stumbled across the Cheshire cat!", "In order to pass him, you will need to answer his riddle correctly.", "If you do not answer him correctly, you will be moved back half the distance from the starting point and there will be two cats placed on the grid.", "Good luck, Alice."};
 	private static int randomNum;
