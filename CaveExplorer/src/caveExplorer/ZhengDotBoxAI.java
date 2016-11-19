@@ -69,7 +69,7 @@ public class ZhengDotBoxAI implements Player{
 					addSide(row, col);
 					completedSquare = true;
 					
-					System.out.println("complete");
+					//System.out.println("complete");
 					break;
 				}
 			}
@@ -91,7 +91,7 @@ public class ZhengDotBoxAI implements Player{
 				addSide(randRow, randCol);
 				madeMove = true;
 				
-				System.out.println("random");
+				//System.out.println("random");
 			}
 				 
 		}while(!madeMove);
@@ -111,10 +111,39 @@ public class ZhengDotBoxAI implements Player{
 			
 			if(sides != 4 && sides != 2)
 			{
-				addSide(randRow, randCol);
-				madeMove = true;
-				
-				System.out.println("logical");
+				for(int i = 0; i < sides; i++)
+				{
+					int[] targetSides = getOpenSides(WendyZhengRoom.board[randRow][randCol]);
+					int side = targetSides[i];
+					int shareRow = randRow;
+					int shareCol = randCol;
+					
+					if(side == 0)
+						shareRow--;
+					if(side == 1)
+						shareCol++;
+					if(side == 2)
+						shareRow++;
+					if(side == 3)
+						shareCol--;
+					
+					if(shareRow >= 0 && shareRow < WendyZhengRoom.board.length && shareCol >= 0 && shareCol < WendyZhengRoom.board[0].length)
+					{
+						if(numberOfSides(WendyZhengRoom.board[shareRow][shareCol]) != 2)
+						{
+							addSide(randRow, randCol, side);
+							madeMove = true;
+							break;
+						}
+					}
+					else
+					{
+						addSide(randRow, randCol, side);
+						madeMove = true;
+						break;
+					}
+				}
+				//System.out.println("logical");
 			}
 			else
 			{
@@ -129,9 +158,15 @@ public class ZhengDotBoxAI implements Player{
 	private void addSide(int row, int col)
 	{
 		int[] targetSides = getOpenSides(WendyZhengRoom.board[row][col]);
-		System.out.println(targetSides.length);
 		System.out.println("The queen added a " + toDirection(targetSides[0]) + " card to row: " + row + ", col: " +col);
 		WendyZhengRoom.addSharedSide(row, col, targetSides[0]);
+		madeMove = true;
+	}
+	
+	private void addSide(int row, int col, int side)
+	{
+		System.out.println("The queen added a " + toDirection(side) + " card to row: " + row + ", col: " +col);
+		WendyZhengRoom.addSharedSide(row, col, side);
 		madeMove = true;
 	}
 	
