@@ -11,7 +11,7 @@ public class WendyZhengRoom implements Playable{
 	
 	private static final String[] SEQ_1 = {"You have been trapped by the Red Queen and her card soldiers!","The queen refuses to let you leave this room", "To unlock the doors and leave, you need to take over the room against the Red Queen's card guards"};
 	private static final String[] SEQ_2 = {"You have won against the Queen", "Now that you have beat the Red Queen, the doors are now unlocked","And you have found the 2nd key"};
-	private static final String[] SEQ_3 = {"You Lost!"};
+	private static final String[] SEQ_3 = {"You Lost!","Please try again to beat the Queen and leave this room"};
 	private static final String[] SEQ_4 = {"You have already been in this room"};
 	public static boolean gameFinished = false;
 	public static WZSquare[][] board = new WZSquare[4][4];
@@ -38,7 +38,12 @@ public class WendyZhengRoom implements Playable{
 		if(checkPlayerWin())
 			readSequence(SEQ_2);
 		else
+		{
 			readSequence(SEQ_3);	
+			gameFinished = false;
+			play();
+		}
+			
 		
 	}
 	
