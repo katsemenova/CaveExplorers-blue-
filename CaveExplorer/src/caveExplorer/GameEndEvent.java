@@ -7,8 +7,9 @@ public class GameEndEvent implements Playable {
 	}
 
 	public void play(){
-		readSequence(SEQUENCE_1);
+		readSequence(SEQUENCE);
 	}
+	
 	public static void readSequence(String[] seq){
 		for(String s:seq){
 			CaveExplorer.print(s);
