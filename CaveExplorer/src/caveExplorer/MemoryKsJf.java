@@ -14,6 +14,7 @@ public class MemoryKsJf implements Playable {
 	}
 	
 	public void play(){
+		playScript();
 		MemorySetUpJf.initialize();
 		gameMode();
 	}
@@ -22,7 +23,7 @@ public class MemoryKsJf implements Playable {
 		readSequence(INTRO_GAME);
 		System.out.println("Are you ready?");
 		while(CaveExplorer.in.nextLine().toLowerCase().indexOf("yes")<0){
-			CaveExplorer.print("Hmm. I will not let you continue until you are ready.");
+			CaveExplorer.print("I will not let you continue until you are ready.");
 		}
 
 	}
