@@ -5,18 +5,19 @@ import java.util.Scanner;
 public class WendyDotBoxPlayer implements Player{
 
 	public static Scanner input = new Scanner(System.in);
-	public static int boxes = 0;
+	public static String cheat = "Donut";
  
 	public void makeMove() {
 		// TODO Auto-generated method stub
 		while(WendyZhengRoom.whosmove.equals("P") && WendyZhengRoom.checkGameFinish() == false ) 
 		{
-//			if(input.nextLine().equals("Queen"))
-//			{
-//				WendyZhengRoom.gameFinished = true;
-//			} 
-//			else
-//			{
+			if(input.nextLine().equals(cheat))
+			{
+				cheat();
+				break;
+			} 
+			else
+			{
 				System.out.println("Where is your next move's row?");
 				int row = checkNum();
 				while(row == -1)
@@ -52,9 +53,15 @@ public class WendyDotBoxPlayer implements Player{
 				}
 			
 				checkMove(row,col,dir);
-			//}
+			}
 				
 		}
+	}
+
+	private void cheat() {
+		// TODO Auto-generated method stub
+		WendyZhengRoom.gameFinished = true;
+		WendyZhengRoom.cheat = true;
 	}
 
 	private int checkNum()

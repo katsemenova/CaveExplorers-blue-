@@ -10,10 +10,12 @@ public class WendyZhengRoom implements Playable{
 	//cheatcode
 	
 	private static final String[] SEQ_1 = {"You have been trapped by the Red Queen and her card soldiers!","The queen refuses to let you leave this room", "To unlock the doors and leave, you need to take over the room against the Red Queen's card guards"};
-	private static final String[] SEQ_2 = {"You have won against the Queen", "Now that you have beat the Red Queen, the doors are now unlocked","And you have found the 2nd key"};
+	private static final String[] INSTRUCTION = {"To beat the Queen and her guards, you need to play a game of dots and boxes with the Queen","Each time you are allowed to make a move placing yourself at a certain row,col,dir","If you make a move that completes box, you can go again","Same for the Queen and her cards if they complete a box","Whoever fills the room with the most boxes win","Have fun playing"};
+	private static final String[] SEQ_2 = {"You have won against the Queen", "Now that you have beaten the Red Queen, the doors are now unlocked","And you have found the 3rd key"};
 	private static final String[] SEQ_3 = {"You Lost!","Please try again to beat the Queen and leave this room"};
 	private static final String[] SEQ_4 = {"You have already been in this room"};
 	public static boolean gameFinished = false;
+	public static boolean cheat = false;
 	public static WZSquare[][] board = new WZSquare[4][4];
 	public static String whosmove = "P";
 	
@@ -31,12 +33,17 @@ public class WendyZhengRoom implements Playable{
 		System.out.println("You are locked in this room");
 
 		readSequence(SEQ_1);
+		readSequence(INSTRUCTION);
 		initializeBoard();
+		
 		
 		playGame();
 		
-		if(checkPlayerWin())
+		if(checkPlayerWin() || cheat)
+		{
 			readSequence(SEQ_2);
+			CaveExplorer.keyGameThree = true;
+		}
 		else
 		{
 			readSequence(SEQ_3);	 
@@ -110,6 +117,7 @@ public class WendyZhengRoom implements Playable{
 	
 	public static void displayField(WZSquare[][] board)
 	{
+		System.out.println("--Press Enter--");
 		String display = "*";
 		for(WZSquare square : board[0])
 			if(square.sides[0] == false)
