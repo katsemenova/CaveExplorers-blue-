@@ -4,11 +4,19 @@ import java.util.Scanner;
 public class TamannaCode {
 	static Scanner input;
 	static String user;
-
+	
+	public static boolean met = false;
 	public static String[][] display = TamannaViolettaRoom.contents;
 
 	public static final int NUMBER_OF_BOULDERS = 6;
-	private static final String[] ENCOUNTER = {"Oh no, you have stumbled across the Cheshire cat!", "In order to pass him, you will need to answer his riddle correctly.", "If you do not answer him correctly, you will be moved back half the distance from the starting point and there will be two cats placed on the grid.", "Good luck, Alice."};
+	private static final String[] ENCOUNTER = {"Oh no, you have stumbled across "
+			+ "the Cheshire cat!", "In order to pass him, you will need to answer "
+					+ "his riddle correctly.", "If you do not answer him correctly, "
+							+ "you will be moved back half the distance from the "
+							+ "starting point and there will be two cats placed "
+							+ "on the grid.", "Good luck, Alice."};
+	private static final String[] RECAP = {"We meet again Alice. Let's see if you can"
+			+ "get this right as well."};
 	private static int randomNum;
 	
 	private static String[][] riddles = {
@@ -29,6 +37,16 @@ public class TamannaCode {
 					+ "flames of a whirlwind do enclose. Left without a goodbye, only to ask "
 					+ "who am I? ","lust"}
 	};
+	
+	public static void catConvo(){
+		if(!met){
+			readSequence(ENCOUNTER);
+			met = true;
+		}
+		else{
+			readSequence(RECAP);
+		}
+	}
 	
 	public static void placeBoulders(){
 		int counter = 0;
@@ -82,7 +100,7 @@ public class TamannaCode {
 	}
 	
 	public static boolean catRiddle(){
-		readSequence(ENCOUNTER);
+		catConvo();
 		randomNum = (int)(Math.random() * 8);
 		
 		CaveExplorer.print("The riddle is " + "' " + riddles[randomNum][0] + " '");
