@@ -59,28 +59,42 @@ public class TamannaCode {
 	}
 	
 	public static void multiplyCat(){
-		int count = 0;
+		int newCats = 0;
 		
-		while (count < 2){
-			int randRow = (int)(Math.random() * 3) + 1; //1-3
+		while (newCats != 2){
+			int randRow = (int)(Math.random() * 5) + 4; //4-8
 			int randColumn = (int)(Math.random() * 8) + 1; //1-8
-			if (display[randRow][randColumn].equals(" ") && !(display[randRow][randColumn].equals("O")) 
-					&& !(display[randRow][randColumn].equals("M"))) {
-				display[randRow][randColumn] = "M";
+			if (display[randRow][randColumn].equals(" ") && 
+					!(display[randRow][randColumn].equals("O")) 
+					&& !(display[randRow][randColumn].equals("M"))){
+						display[randRow][randColumn] = "M";
+						newCats++;
 			}
-			count++;
 		}
 	}
 	
-	public static boolean TamannaCatRiddle(){
+	public static String userInput(){
+		input=new Scanner(System.in);
+		user= "";
+		
+		String userInput = input.nextLine();
+		return userInput;
+	}
+	
+	public static boolean catRiddle(){
 		readSequence(ENCOUNTER);
 		randomNum = (int)(Math.random() * 8) + 1;
 		
-		CaveExplorer.print("The riddle is " + riddles[randomNum][0]);
-		user = input.nextLine();
+		CaveExplorer.print("The riddle is " + "' " + riddles[randomNum][0] + " '");
+		user = userInput().toLowerCase();
 		
 		if(user.equals(riddles[randomNum][1])){
+			System.out.println("That was correct.");
 			return true;
+		}
+		else{
+			System.out.println("That was incorrect.");
+			multiplyCat();
 		}
 		return false;
 	}

@@ -31,11 +31,11 @@ public class ViolettaCode {
 				right = !right;
 			}
 			if(display[AliceRow][AliceCol].equals("M")){
-				if(!TamannaCatRiddle()){
+				if(TamannaCode.catRiddle()){
 					moveAliceBack();
 					numberOfMoves = 0;
 				}
-				System.out.println("temp cat code");
+				System.out.println("Wrong");
 			}
 			
 			if(TamannaViolettaRoom.endGame(AliceRow, AliceCol)){
@@ -92,7 +92,7 @@ public class ViolettaCode {
 		
 	}
 
-	private static boolean TamannaCatRiddle() {
+	private static boolean catRiddle() {
 		// TODO Auto-generated method stub
 		return false;
 	}
