@@ -31,7 +31,7 @@ public class ViolettaCode {
 				right = !right;
 			}
 			if(display[AliceRow][AliceCol].equals("M")){
-				if(TamannaCode.catRiddle()){
+				if(!TamannaCode.catRiddle()){
 					moveAliceBack();
 					numberOfMoves = 0;
 				}

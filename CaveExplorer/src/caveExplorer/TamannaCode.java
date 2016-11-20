@@ -12,22 +12,22 @@ public class TamannaCode {
 	private static int randomNum;
 	
 	private static String[][] riddles = {
-			{"Why didn’t the skeleton cross the road?","He didn’t have the guts"},
-			{"What is a witch’s favorite subject at school?","Spelling"},
+			{"Why didn’t the skeleton cross the road?","he didn’t have the guts"},
+			{"What is a witch’s favorite subject at school?","spelling"},
 			{"They say you can fear me, and they are not wrong. I am the Ultimate stalker and "
 					+ "though you can always see me you’ll never be able to flee from me. What am I?",
-					"A shadow"},
+					"a shadow"},
 			{"Divine as I may seem, up hold my golden. You defend me without a moments notice, "
 					+ "but you’re always afraid to break me. A word of caution to the wise, "
 					+ "control me or you’ll spend an eternity kneeling and never rise only left "
-					+ "to question. Who am I?","Pride"},
-			{"What is yours, but others use it more than you do?","My name"},
-			{"The more you have of it, the less you see. What is it?","Darkness"},
-			{"What gets wetter and wetter, the more it dries?","A towel"},
+					+ "to question. Who am I?","pride"},
+			{"What is yours, but others use it more than you do?","my name"},
+			{"The more you have of it, the less you see. What is it?","darkness"},
+			{"What gets wetter and wetter, the more it dries?","a towel"},
 			{"Love and I don’t always see eye to eye. But when we become the proper mixture "
 					+ "we are truly a love mixture. Caution to those who indulge, "
 					+ "flames of a whirlwind do enclose. Left without a goodbye, only to ask "
-					+ "who am I? ","Lust"}
+					+ "who am I? ","lust"}
 	};
 	
 	public static void placeBoulders(){
@@ -74,8 +74,8 @@ public class TamannaCode {
 	}
 	
 	public static String userInput(){
-		input=new Scanner(System.in);
-		user= "";
+		input = new Scanner(System.in);
+		user = "";
 		
 		String userInput = input.nextLine();
 		return userInput;
@@ -83,20 +83,21 @@ public class TamannaCode {
 	
 	public static boolean catRiddle(){
 		readSequence(ENCOUNTER);
-		randomNum = (int)(Math.random() * 8) + 1;
+		randomNum = (int)(Math.random() * 8);
 		
 		CaveExplorer.print("The riddle is " + "' " + riddles[randomNum][0] + " '");
 		user = userInput().toLowerCase();
+		String answer = riddles[randomNum][1];
 		
-		if(user.equals(riddles[randomNum][1])){
+		if(answer.equals(user)){
 			System.out.println("That was correct.");
 			return true;
 		}
 		else{
 			System.out.println("That was incorrect.");
 			multiplyCat();
+			return false;
 		}
-		return false;
 	}
 	
 	public static void readSequence(String[] seq){
