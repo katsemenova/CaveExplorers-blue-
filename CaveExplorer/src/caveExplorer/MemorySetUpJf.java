@@ -14,7 +14,7 @@ public class MemorySetUpJf extends MemoryKsJf {
 		print(map);
 	}
 	public static void updateMap(){
-		System.out.println("map");
+		//System.out.println("map");
 		map = new String[7][4];
 		int cardRow = 0;
 		for(int row=0;row<map.length;row++){

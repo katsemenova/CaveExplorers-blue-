@@ -40,7 +40,7 @@ public class CardJf {
 	}
 
 	public String getNumIdentifier() {
-		System.out.println("the num is" +numIdentifier);
+		
 		return numIdentifier;
 	}
 

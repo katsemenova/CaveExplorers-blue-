@@ -6,23 +6,25 @@ public class MemoryKsJf implements Playable {
 	public static MemoryAiKat Ai;
 	public static MemorySetUpJf setup;
 	public static CardJf[][] cards;
-	private static final String[] IntroGame={"Hahaha! Welcome Alice! You're finally here! I've been waiting for you.","If you want to continue exploring the castle, you have to play a game with me."};
+	private static final String[] INTRO_GAME={"Hahaha! Welcome Alice! You're finally here! I've been waiting for you.","If you want to continue exploring the castle, you have to play a game with me.", "In this game, we each take turns to match two cards that contain the same symbol.","If the cards  don't match, the order of the cards will be switched.","The game will end ONLY when ALL the cards are matched.","Since your Alice, I'll let you go first."};
 	
 	public MemoryKsJf() {
-			
 		
 	}
 	
 	public void play(){
+		MemoryAiKat.initialize();
+		playScript();
 		MemorySetUpJf.initialize();
+		
 		gameMode();
 	}
 	
 	public void playScript(){
-		readSequence(SEQUENCE_1);
+		readSequence(INTRO_GAME);
 		System.out.println("Are you ready?");
 		while(CaveExplorer.in.nextLine().toLowerCase().indexOf("yes")<0){
-			CaveExplorer.print("Hmm. I will not let you continue un");
+			CaveExplorer.print("I will not let you continue until you are ready.");
 		}
 
 	}
@@ -46,8 +48,31 @@ public class MemoryKsJf implements Playable {
 		return null;
 	}
 	private void gameMode() {
-
+		while(cardsLeft()){
+			if(MemoryAiKat.playerMove==true){
+				MemoryAiKat.userMove();
+			}
+			else{
+				MemoryAiKat.computerMove();
+			}	
+		}
+		if(MemoryAiKat.getUserPairs()<MemoryAiKat.getCompPairs()){
+			System.out.println("Hahahaha I won, if you want to get the key play again...and win");
+		}
+		else if(MemoryAiKat.getUserPairs()>=MemoryAiKat.getCompPairs()){
+			System.out.println("Ugh I have to practice. You won, here is your key");
+		}
 	}
+	private boolean cardsLeft() {
+		for(int r=0;r<cards.length;r++){
+			for(int c=0;c<cards[r].length;c++){
+				if(!cards[r][c].isFlippedOpen())
+					return true;
+			}
+		}
+		return false;
+	}
+
 	public void enter(){
 		//super.enter(); //done to make sure that the X is moved in the actual thing
 		
@@ -69,3 +94,4 @@ public class MemoryKsJf implements Playable {
 		}
 		return false;
 	}
+}
