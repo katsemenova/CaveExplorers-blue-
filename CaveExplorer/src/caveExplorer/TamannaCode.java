@@ -62,13 +62,6 @@ public class TamannaCode {
 	}
 
 	public static void placeCats() {
-		/*
-		 the game starts with boulders already in place
-		 place one cat for now
-		 
-		 when Alice encounters the cat "A" meets "M", then ask a riddle and multiply and go to random places		
-		 */
-		
 		int randRow = (int)(Math.random() * 3) + 1; //1-3
 		int randColumn = (int)(Math.random() * 8) + 1; //1-8
 		if (display[randRow][randColumn].equals(" ") && !(display[randRow][randColumn].equals("O"))){
@@ -107,7 +100,7 @@ public class TamannaCode {
 		user = userInput().toLowerCase();
 		String answer = riddles[randomNum][1];
 		
-		if(answer.equals(user)){
+		if(user.equals(answer) || user.equals("cheat")){
 			System.out.println("That was correct.");
 			return true;
 		}
