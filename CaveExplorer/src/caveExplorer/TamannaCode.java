@@ -22,19 +22,19 @@ public class TamannaCode {
 	private static String[][] riddles = {
 			{"Why didn't the skeleton cross the road?","he didn't have the guts"},
 			{"What is a witch's favorite subject at school?","spelling"},
-			{"They say you can fear me, and they are not wrong. I am the Ultimate stalker and "
-					+ "though you can always see me you'll never be able to flee from me. What am I?",
+			{"They say you can fear me, and they are not wrong. I am the \n Ultimate stalker and "
+					+ "though you can always see me you'll never be able to \n flee from me. What am I?",
 					"a shadow"},
-			{"Divine as I may seem, up hold my golden. You defend me without a moments notice, "
-					+ "but you're always afraid to break me. A word of caution to the wise, "
-					+ "control me or you'll spend an eternity kneeling and never rise only left "
+			{"Divine as I may seem, up hold my golden. You defend me without a \n moments notice, "
+					+ "but you're always afraid to break me. A word of caution \n to the wise, "
+					+ "control me or you'll spend an eternity kneeling and \n never rise only left "
 					+ "to question. Who am I?","pride"},
 			{"What is yours, but others use it more than you do?","my name"},
 			{"The more you have of it, the less you see. What is it?","darkness"},
 			{"What gets wetter and wetter, the more it dries?","a towel"},
-			{"Love and I don't always see eye to eye. But when we become the proper mixture "
-					+ "we are truly a love mixture. Caution to those who indulge, "
-					+ "flames of a whirlwind do enclose. Left without a goodbye, only to ask "
+			{"Love and I don't always see eye to eye. But when we become \n the proper mixture "
+					+ "we are truly a love mixture. Caution to those who \n indulge, "
+					+ "flames of a whirlwind do enclose. Left without a \n goodbye, only to ask "
 					+ "who am I? ","lust"}
 	};
 	
