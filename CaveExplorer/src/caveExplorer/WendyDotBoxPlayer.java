@@ -14,7 +14,7 @@ public class WendyDotBoxPlayer implements Player{
 //			if(input.nextLine().equals("Queen"))
 //			{
 //				WendyZhengRoom.gameFinished = true;
-//			}
+//			} 
 //			else
 //			{
 				System.out.println("Where is your next move's row?");

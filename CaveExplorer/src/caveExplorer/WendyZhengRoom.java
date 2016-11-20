@@ -39,7 +39,7 @@ public class WendyZhengRoom implements Playable{
 			readSequence(SEQ_2);
 		else
 		{
-			readSequence(SEQ_3);	
+			readSequence(SEQ_3);	 
 			gameFinished = false;
 			play();
 		}
