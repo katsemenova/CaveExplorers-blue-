@@ -11,8 +11,21 @@ public class TamannaViolettaRoom implements Playable{
 		
 	}
 	
-	private static final String[] INTRO = {"You have stumbled upon the dwellings of the Cheshire Cat.", "He occupies this part of Wonderland and will bother with you with riddles until you reach the end.", "Be wary, do not answer his riddles incorrectly or else he will send you backwards.", "He will only permit you to walk a certain amount of steps at a time."};
-	private static final String[] RECAP = {"Answer all of the riddles correctly or else you will never leave."};
+	private static final String[] INTRO = {"You have stumbled upon the dwellings of the "
+			+ "Cheshire Cat.", "He occupies this part of Wonderland and will bother "
+				+ "with you with riddles until you reach the end.", "Be wary, do "
+						+ "not answer his riddles incorrectly or else he will send "
+						+ "you backwards.", "He will only permit you to walk a "
+								+ "certain amount of steps at a time.", "He "
+										+ "represents the 'M'(s) on the grid.", "In "
+												+ "order to see how many steps you "
+												+ "will be allowed to take, press "
+												+ "enter and he will tell you.", "When "
+														+ "you encounter boulders "
+														+ "('O'), you will move be moved "
+														+ "downwards."};
+	private static final String[] RECAP = {"Answer all of the riddles correctly or "
+			+ "else you will never leave."};
 	
 	public static String[][] contents; 
 	
