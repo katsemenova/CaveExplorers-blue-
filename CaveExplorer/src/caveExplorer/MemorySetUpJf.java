@@ -71,7 +71,7 @@ public class MemorySetUpJf extends MemoryKsJf {
 	
 	public static String getContent(int row, int col){
 		if(cards[row][col].isFlippedOpen()){
-			return cards[row][col].getSymbol();
+			return " "+cards[row][col].getSymbol();
 		}
 		else if(cards[row][col].getNumIdentifier().length()==1){
 			return " "+cards[row][col].getNumIdentifier();
