@@ -42,7 +42,6 @@ public class ViolettaCode {
 					moveAliceBack();
 					numberOfMoves = 0;
 				}
-				System.out.println("Wrong");
 			}
 			
 			if(TamannaViolettaRoom.endGame(AliceRow, AliceCol)){
@@ -64,15 +63,33 @@ public class ViolettaCode {
 
 
 	private static void sideStepBoulder(){
-		AliceRow++;
-		right = !right;
-		//AliceCol = AliceCol;
-		while(display[AliceRow][AliceCol].equals("O")){
-			if(right){
-				AliceCol++;
-			}
-			else{
+		boolean down = false;
+		if(right){
+			display[AliceRow][AliceCol] = "<";
+			while(!down){
 				AliceCol--;
+				if(display[AliceRow + 1][AliceCol].equals("O")){
+					display[AliceRow][AliceCol] = "<";
+				}
+				else{
+					display[AliceRow][AliceCol] = "v";
+					AliceRow++;
+					down = true;
+				}
+			}	
+		}
+		else{
+			display[AliceRow][AliceCol] = ">";
+			while(!down){
+				AliceCol++;
+				if(display[AliceRow + 1][AliceCol].equals("O")){
+					display[AliceRow][AliceCol] = ">";
+				}
+				else{
+					display[AliceRow][AliceCol] = "v";
+					AliceRow++;
+					down = true;
+				}
 			}
 		}
 	}
