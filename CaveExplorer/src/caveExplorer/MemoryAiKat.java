@@ -68,7 +68,6 @@ public class MemoryAiKat extends MemoryKsJf implements Playable{
 		int[] index2;
 		
 		if(!arr[1].equals("")&&!arr[0].equals("")){
-			System.out.println("not random");
 			index1=getIndexOfCardNum(Integer.parseInt(arr[0]));
 			index2=getIndexOfCardNum(Integer.parseInt(arr[1]));
 			
@@ -82,7 +81,6 @@ public class MemoryAiKat extends MemoryKsJf implements Playable{
 			
 		}else{
 			//settingCards
-			System.out.println("random");
 			index1 = getIndexOfCardNum(getNumIdentFromLearned());
 			cardObj1=MemoryKsJf.cards[index1[0]][index1[1]];
 			
