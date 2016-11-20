@@ -47,6 +47,7 @@ public class TamannaViolettaRoom implements Playable{
 		while(!endGame){
 			ViolettaCode.playAlice();
 		}
+		System.out.println("You've passed, Alice. Congratulations. Here's your key");
 	
 	}
 	
