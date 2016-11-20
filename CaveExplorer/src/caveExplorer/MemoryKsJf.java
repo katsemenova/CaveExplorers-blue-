@@ -6,7 +6,7 @@ public class MemoryKsJf implements Playable {
 	public static MemoryAiKat Ai;
 	public static MemorySetUpJf setup;
 	public static CardJf[][] cards;
-	private static final String[] INTRO_GAME={"Hahaha! Welcome Alice! You're finally here! I've been waiting for you.","If you want to continue exploring the castle, you have to play a game with me.", "In this game, we each take turns to match two cards that contain the same symbol.","If the cards  don't match, the order of the cards will be switched.","The game will end ONLY when ALL the cards are matched.","Since your Alice, I'll let you go first."};
+	private static final String[] INTRO_GAME={"Hahaha! Welcome Alice!","You're finally here! I am the Hatter and I've been waiting for you.","If you want to continue exploring the castle, you have to play a game with me.", "In this game, we each take turns to match two cards that contain the same symbol.","If the cards  don't match, the order of the cards will be switched.","The game will end ONLY when ALL the cards are matched.","Since your Alice, I'll let you go first."};
 	
 	public MemoryKsJf() {
 		
@@ -24,7 +24,7 @@ public class MemoryKsJf implements Playable {
 		readSequence(INTRO_GAME);
 		System.out.println("Are you ready?");
 		while(CaveExplorer.in.nextLine().toLowerCase().indexOf("yes")<0){
-			CaveExplorer.print("I will not let you continue until you are ready.");
+			CaveExplorer.print("I will not let you continue until you are ready. Type 'yes' when you are ready.");
 		}
 
 	}
