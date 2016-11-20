@@ -1,13 +1,9 @@
 package caveExplorer;
 
-//import arrays.CaveRoomPd8;
-//import arrays.Playable;
-//import arrays.coordinates;
-
 public class TamannaViolettaRoom implements Playable{
 	
 	public static boolean played = false;
-	public static int MainAliceRow = 0; //i renamed them main to distinguish from my use of them in my code
+	public static int MainAliceRow = 0; 
 	public static int MainAliceCol = 0;
 	public static boolean endGame = false;
 	
@@ -23,7 +19,6 @@ public class TamannaViolettaRoom implements Playable{
 	//boulder = "O"
 	//Alice = "A"
 	//cat = "M"
-	//cat does not appear behind Alice, only in frontt
 	
 	public void play(){
 		if(!played){
@@ -38,11 +33,8 @@ public class TamannaViolettaRoom implements Playable{
 		initializeGrid();
 		
 		TamannaCode.placeBoulders();
-		//TamannaCode.placeCats();
+		TamannaCode.placeCats();
 		drawGrid();
-	
-		//Tamanna.class.place boulders
-		//Tamanna place first cat
 		
 		while(!endGame){
 			ViolettaCode.playAlice();
@@ -58,7 +50,7 @@ public class TamannaViolettaRoom implements Playable{
 			}
 		}
 		contents[0][0] = "A";
-		contents[9][0] = "X";
+		contents[9][0] = "X"; //marks the end position
 	}
 	
 	public static void drawGrid(){
@@ -90,10 +82,6 @@ public class TamannaViolettaRoom implements Playable{
 			}
 		}
 		System.out.print("| \n");
-	}
-	
-	public static void tvCheatCode(){
-		
 	}
 	
 	public static boolean endGame(int row, int col){

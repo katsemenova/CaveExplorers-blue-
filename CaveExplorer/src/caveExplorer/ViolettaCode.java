@@ -6,7 +6,7 @@ public class ViolettaCode {
 	public static String[][] display = TamannaViolettaRoom.contents;
 	public static boolean right = true;
 	public static boolean catEncounter = false;
-	private static final String[] ENCOUNTER = {"The Cheshire Cat appears unexpectedly", "He is blocking your path", "'You thought you could slip away from me, Alice?'"};
+	private static final String[] ENCOUNTER = {"'You thought you could slip away from me, Alice?'"};
 	
 	
 	public static void playAlice(){
@@ -16,7 +16,6 @@ public class ViolettaCode {
 		TamannaViolettaRoom.readSequence(output);
 		moveAlice(numberOfMoves);
 	}
-
 
 	private static void moveAlice(int numberOfMoves) {
 		while(numberOfMoves > 0){
@@ -39,6 +38,7 @@ public class ViolettaCode {
 			}
 			
 			//check new position status
+			//Is there a cat?
 			if(display[AliceRow][AliceCol].equals("M")){
 				TamannaViolettaRoom.drawGrid();
 				catEncounter = true;
@@ -47,7 +47,7 @@ public class ViolettaCode {
 					numberOfMoves = 0;
 				}
 			}
-			
+			//Is Alice at the end of the board?
 			if(TamannaViolettaRoom.endGame(AliceRow, AliceCol)){
 				TamannaViolettaRoom.endGame = true;
 				numberOfMoves = 0;
@@ -57,9 +57,14 @@ public class ViolettaCode {
 				numberOfMoves--; 
 			}
 		}
+		//Just in case the cat does not appear in Alice's route
 		if(!catEncounter && AliceRow >= 5){
 			TamannaViolettaRoom.readSequence(ENCOUNTER);
-			catPlay(numberOfMoves);
+			catEncounter = true;
+			if(!TamannaCode.catRiddle()){
+				moveAliceBack();
+				numberOfMoves = 0;
+			}
 		}
 		TamannaViolettaRoom.drawGrid();
 		
@@ -68,14 +73,6 @@ public class ViolettaCode {
 		TamannaViolettaRoom.MainAliceRow = AliceRow;
 	}
 
-	public static void catPlay(int numberOfMoves){
-		catEncounter = true;
-		if(!TamannaCode.catRiddle()){
-			moveAliceBack();
-			numberOfMoves = 0;
-		}
-	}
-	
 	private static void sideStepBoulder(){
 		boolean down = false;
 		if(right){
@@ -123,6 +120,12 @@ public class ViolettaCode {
 		}
 		AliceRow = tempRow;
 		AliceCol = tempCol;
-		
+		if(AliceRow % 2 == 0){
+			right = true;
+		}
+		else{
+			right = false; 
+		}
+		display[AliceRow][AliceCol] = "A";
 	}	
 }
