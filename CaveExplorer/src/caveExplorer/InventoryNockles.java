@@ -2,17 +2,11 @@ package caveExplorer;
 
 public class InventoryNockles {
 	private boolean hasMap;
-	private boolean hasKey1;
-	private boolean hasKey2;
-	private boolean hasKey3;
 	private String map;
 	
 	
 	public InventoryNockles(CaveRoomPd8[][] caves) {
 		hasMap=false;
-		hasKey1=false;
-		hasKey2=false;
-		hasKey3=false;
 		updateMap();
 		
 	}

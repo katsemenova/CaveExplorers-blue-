@@ -18,7 +18,7 @@ public class WendyZhengRoom implements Playable{
 	public static boolean cheat = false;
 	public static WZSquare[][] board = new WZSquare[4][4];
 	public static String whosmove = "P";
-	
+	 
 	private static WendyDotBoxPlayer player = new WendyDotBoxPlayer();
 	private static ZhengDotBoxAI queen = new ZhengDotBoxAI();
 	
