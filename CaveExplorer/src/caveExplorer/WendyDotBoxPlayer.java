@@ -17,7 +17,7 @@ public class WendyDotBoxPlayer implements Player{
 				break;
 			} 
 			else
-			{
+			{ 
 				System.out.println("Where is your next move's row?");
 				int row = checkNum();
 				while(row == -1)

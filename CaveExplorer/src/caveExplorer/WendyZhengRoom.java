@@ -54,31 +54,6 @@ public class WendyZhengRoom implements Playable{
 		
 	}
 	
-//	public void interpretAction(String input) {
-//		while(!isValid(input)){
-//			CaveExplorer.print("Please enter 'w','a','s', or 'a'");
-//			input = CaveExplorer.in.nextLine().toLowerCase();
-//		}
-//		String[] keys={"w","d","s","a"};
-//		int indexFound=-1;
-//		
-//		for(int i=0;i<keys.length;i++){
-//			if(keys[i].equals(input)){
-//				indexFound=i;
-//				break;
-//			}
-//		}
-//	} 
-//
-//	private boolean isValid(String input) {
-//		String[] validKeys={"w","a","s","d"};
-//		for(String key:validKeys){
-//			if(input.toLowerCase().equals(key))
-//				return true; 
-//		}
-//		return false;
-//	}
-	
 	private void initializeBoard()
 	{
 		for(int row=0;row<board.length;row++)
@@ -103,9 +78,7 @@ public class WendyZhengRoom implements Playable{
 					queen.makeMove();
 			}
 		}
-		//interpretAction(CaveExplorer.in.nextLine());
-		
-		
+			
 	}
 	public static void readSequence(String[] seq){
 		for(String s:seq){
@@ -136,7 +109,7 @@ public class WendyZhengRoom implements Playable{
 					if(textRow == 0)
 					{
 						if(square.sides[3])
-							str += "|";
+							str += "|"; 
 						else
 							str += " ";
 						

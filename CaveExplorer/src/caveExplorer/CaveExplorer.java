@@ -59,7 +59,7 @@ public class CaveExplorer {
 			String input =in.nextLine();
 			act(input);
 			
-		}
+		} 
 	}
 	private static void act(String input) {
 		setAllDoors();
