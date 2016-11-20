@@ -17,6 +17,7 @@ public class ViolettaCode {
 
 	private static void moveAlice(int numberOfMoves) {
 		while(numberOfMoves > 0){
+			//get new position
 			if(right && AliceCol < display[0].length - 1 && !display[AliceRow][AliceCol + 1].equals("O")){
 				display[AliceRow][AliceCol] = ">";
 				AliceCol++; 
@@ -25,14 +26,16 @@ public class ViolettaCode {
 				display[AliceRow][AliceCol] = "<";
 				AliceCol--; 
 			}
-//			else if(display[AliceRow+1][AliceCol].equals("O")){
-//				
-//			}
+			else if(display[AliceRow+1][AliceCol].equals("O")){
+				sideStepBoulder();
+			}
 			else{
 				display[AliceRow][AliceCol] = "v";
 				AliceRow++;
 				right = !right;
 			}
+			
+			//check new position status
 			if(display[AliceRow][AliceCol].equals("M")){
 				TamannaViolettaRoom.drawGrid();
 				if(!TamannaCode.catRiddle()){
@@ -57,6 +60,21 @@ public class ViolettaCode {
 		//this is so that Tamanna can access Alice's location
 		TamannaViolettaRoom.MainAliceCol = AliceCol;
 		TamannaViolettaRoom.MainAliceRow = AliceRow;
+	}
+
+
+	private static void sideStepBoulder(){
+		AliceRow++;
+		right = !right;
+		//AliceCol = AliceCol;
+		while(display[AliceRow][AliceCol].equals("O")){
+			if(right){
+				AliceCol++;
+			}
+			else{
+				AliceCol--;
+			}
+		}
 	}
 
 
@@ -94,11 +112,5 @@ public class ViolettaCode {
 		AliceRow = tempRow;
 		AliceCol = tempCol;
 		
-	}
-
-	private static boolean catRiddle() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-		
+	}	
 }
