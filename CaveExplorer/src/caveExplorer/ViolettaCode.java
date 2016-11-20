@@ -25,12 +25,16 @@ public class ViolettaCode {
 				display[AliceRow][AliceCol] = "<";
 				AliceCol--; 
 			}
+//			else if(display[AliceRow+1][AliceCol].equals("O")){
+//				
+//			}
 			else{
 				display[AliceRow][AliceCol] = "v";
 				AliceRow++;
 				right = !right;
 			}
 			if(display[AliceRow][AliceCol].equals("M")){
+				TamannaViolettaRoom.drawGrid();
 				if(!TamannaCode.catRiddle()){
 					moveAliceBack();
 					numberOfMoves = 0;
@@ -39,7 +43,6 @@ public class ViolettaCode {
 			}
 			
 			if(TamannaViolettaRoom.endGame(AliceRow, AliceCol)){
-				//drawGrid();
 				System.out.println("You've reached the end. Congrats loser");
 				TamannaViolettaRoom.endGame = true;
 				numberOfMoves = 0;
@@ -60,6 +63,7 @@ public class ViolettaCode {
 	private static void moveAliceBack() {
 		int tempRow = AliceRow / 2; 
 		int tempCol = AliceCol / 2;
+		display[AliceRow][AliceCol] = " ";
 		for(int row = AliceRow; row > tempRow; row--){
 			for(int col = 0; col < display[row].length; col++){
 				if(!display[row][col].equals("O") && !display[row][col].equals("M")){
