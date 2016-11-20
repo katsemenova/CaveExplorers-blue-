@@ -9,9 +9,15 @@ public class WendyDotBoxPlayer implements Player{
  
 	public void makeMove() {
 		// TODO Auto-generated method stub
-		while(WendyZhengRoom.whosmove.equals("P") && WendyZhengRoom.checkGameFinish() == false) 
+		while(WendyZhengRoom.whosmove.equals("P") && WendyZhengRoom.checkGameFinish() == false ) 
 		{
-			System.out.println("Where is your next move's row?");
+//			if(input.nextLine().equals("Queen"))
+//			{
+//				WendyZhengRoom.gameFinished = true;
+//			}
+//			else
+//			{
+				System.out.println("Where is your next move's row?");
 				int row = checkNum();
 				while(row == -1)
 				{
@@ -46,8 +52,8 @@ public class WendyDotBoxPlayer implements Player{
 				}
 			
 				checkMove(row,col,dir);
+			//}
 				
-			
 		}
 	}
 

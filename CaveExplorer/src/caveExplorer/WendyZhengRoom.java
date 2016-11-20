@@ -47,30 +47,30 @@ public class WendyZhengRoom implements Playable{
 		
 	}
 	
-	/*public void interpretAction(String input) {
-		while(!isValid(input)){
-			CaveExplorer.print("Please enter 'w','a','s', or 'a'");
-			input = CaveExplorer.in.nextLine().toLowerCase();
-		}
-		String[] keys={"w","d","s","a"};
-		int indexFound=-1;
-		
-		for(int i=0;i<keys.length;i++){
-			if(keys[i].equals(input)){
-				indexFound=i;
-				break;
-			}
-		}
-	} 
-
-	private boolean isValid(String input) {
-		String[] validKeys={"w","a","s","d"};
-		for(String key:validKeys){
-			if(input.toLowerCase().equals(key))
-				return true; 
-		}
-		return false;
-	}*/
+//	public void interpretAction(String input) {
+//		while(!isValid(input)){
+//			CaveExplorer.print("Please enter 'w','a','s', or 'a'");
+//			input = CaveExplorer.in.nextLine().toLowerCase();
+//		}
+//		String[] keys={"w","d","s","a"};
+//		int indexFound=-1;
+//		
+//		for(int i=0;i<keys.length;i++){
+//			if(keys[i].equals(input)){
+//				indexFound=i;
+//				break;
+//			}
+//		}
+//	} 
+//
+//	private boolean isValid(String input) {
+//		String[] validKeys={"w","a","s","d"};
+//		for(String key:validKeys){
+//			if(input.toLowerCase().equals(key))
+//				return true; 
+//		}
+//		return false;
+//	}
 	
 	private void initializeBoard()
 	{
@@ -87,6 +87,7 @@ public class WendyZhengRoom implements Playable{
 			
 			if(checkGameFinish())
 				gameFinished = true;
+				
 			else
 			{
 				if(WendyZhengRoom.whosmove.equals("P"))
@@ -95,6 +96,7 @@ public class WendyZhengRoom implements Playable{
 					queen.makeMove();
 			}
 		}
+		//interpretAction(CaveExplorer.in.nextLine());
 		
 		
 	}
