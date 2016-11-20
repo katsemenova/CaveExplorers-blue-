@@ -10,7 +10,7 @@ public class WendyZhengRoom implements Playable{
 	//cheatcode
 	
 	private static final String[] SEQ_1 = {"You have been trapped by the Red Queen and her card soldiers!","The queen refuses to let you leave this room", "To unlock the doors and leave, you need to take over the room against the Red Queen's card guards"};
-	private static final String[] SEQ_2 = {"You have won against the Queen", "Now that you have beat the Red Queen, the doors are now unlocked","And you have found the 2nd key"};
+	private static final String[] SEQ_2 = {"You have won against the Queen", "Now that you have beat the Red Queen, the doors are now unlocked","And you have found the 3rd key"};
 	private static final String[] SEQ_3 = {"You Lost!","Please try again to beat the Queen and leave this room"};
 	private static final String[] SEQ_4 = {"You have already been in this room"};
 	public static boolean gameFinished = false;
@@ -21,56 +21,33 @@ public class WendyZhengRoom implements Playable{
 	private static ZhengDotBoxAI queen = new ZhengDotBoxAI();
 	
 	public WendyZhengRoom() {
-		//super(description);
-		//enter();
+
 	}
 	
 	public void play()
 	{
-		//super.enter();
-		System.out.println("You are locked in this room");
-
-		readSequence(SEQ_1);
-		initializeBoard();
-		
-		playGame();
-		
-		if(checkPlayerWin())
-			readSequence(SEQ_2);
-		else
+		if(!gameFinished)
 		{
-			readSequence(SEQ_3);	 
-			gameFinished = false;
-			play();
-		}
+			System.out.println("You are locked in this room");
+	
+			readSequence(SEQ_1);
+			initializeBoard();
 			
+			playGame();
+			
+			if(checkPlayerWin())
+				readSequence(SEQ_2);
+			else
+			{
+				readSequence(SEQ_3);	 
+				gameFinished = false;
+				play();
+			}
+		}
+		else
+			readSequence(SEQ_4);
 		
 	}
-	
-//	public void interpretAction(String input) {
-//		while(!isValid(input)){
-//			CaveExplorer.print("Please enter 'w','a','s', or 'a'");
-//			input = CaveExplorer.in.nextLine().toLowerCase();
-//		}
-//		String[] keys={"w","d","s","a"};
-//		int indexFound=-1;
-//		
-//		for(int i=0;i<keys.length;i++){
-//			if(keys[i].equals(input)){
-//				indexFound=i;
-//				break;
-//			}
-//		}
-//	} 
-//
-//	private boolean isValid(String input) {
-//		String[] validKeys={"w","a","s","d"};
-//		for(String key:validKeys){
-//			if(input.toLowerCase().equals(key))
-//				return true; 
-//		}
-//		return false;
-//	}
 	
 	private void initializeBoard()
 	{
@@ -86,8 +63,10 @@ public class WendyZhengRoom implements Playable{
 			displayField(board);
 			
 			if(checkGameFinish())
+			{
 				gameFinished = true;
-				
+				CaveExplorer.keyGameThree = true;
+			}	
 			else
 			{
 				if(WendyZhengRoom.whosmove.equals("P"))
