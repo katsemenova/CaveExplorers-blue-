@@ -9,7 +9,7 @@ public class Door {
 	public Door(){
 		open=true;
 		locked=false;
-		description="door";
+		description="passage";
 		details=" ";
 	}
 //getters and setters
