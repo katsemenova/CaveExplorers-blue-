@@ -16,7 +16,7 @@ public class TamannaCode {
 							+ "starting point and there will be two cats placed "
 							+ "on the grid.", "Good luck, Alice."};
 	private static final String[] RECAP = {"We meet again Alice. Let's see if you can"
-			+ "get this right as well."};
+			+ " get this right."};
 	private static int randomNum;
 	
 	private static String[][] riddles = {
@@ -64,7 +64,8 @@ public class TamannaCode {
 	public static void placeCats() {
 		int randRow = (int)(Math.random() * 3) + 1; //1-3
 		int randColumn = (int)(Math.random() * 8) + 1; //1-8
-		if (display[randRow][randColumn].equals(" ") && !(display[randRow][randColumn].equals("O"))){
+		if (display[randRow][randColumn].equals(" ") && 
+				!(display[randRow][randColumn].equals("O"))){
 			display[randRow][randColumn] = "M";
 		}
 	}
