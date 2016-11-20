@@ -43,7 +43,7 @@ public class ViolettaCode {
 			}
 			
 			if(TamannaViolettaRoom.endGame(AliceRow, AliceCol)){
-				System.out.println("You've reached the end. Congrats loser");
+				System.out.println("You've reached the end. Congratulations Alice!");
 				TamannaViolettaRoom.endGame = true;
 				numberOfMoves = 0;
 			}
