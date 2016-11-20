@@ -98,6 +98,7 @@ public class TamannaViolettaRoom implements Playable{
 	
 	public static boolean endGame(int row, int col){
 		if(col == 0 && row == 9){
+			CaveExplorer.keyGameTwo = true;
 			return true;
 		}
 		return false;
