@@ -7,8 +7,14 @@ public class CaveExplorer {
 	public static Scanner in;
 	public static CaveRoomPd8 currentRoom;
 	public static InventoryNockles inventory;
+	public static boolean keyGameOne;
+	public static boolean keyGameTwo;
+	public static boolean keyGameThree;
 	
 	public static void main(String[] args){
+		keyGameOne=false;
+		keyGameTwo=false;
+		keyGameThree=false;
 		in=new Scanner(System.in);
 		caves = new CaveRoomPd8[5][6];
 		 
@@ -25,7 +31,7 @@ public class CaveExplorer {
 		caves[4][5]=new EventRoom("This is where you found the map", new GameStartEvent());
 		caves[2][5]=new EventRoom("This is where you found the second key", new WendyZhengRoom());
 		//caves[3][1]=new EventRoom("This is where you found the third key", new TamannaViolettaRoom());
-		//caves[0][1]=new EventRoom("This is the exit", new );
+		caves[0][1]=new EventRoom("This is the exit", new GameEndEvent());
 		currentRoom.enter();
 		inventory=new InventoryNockles(caves);
 		startExploring();
@@ -51,7 +57,6 @@ public class CaveExplorer {
 			print(currentRoom.getDescription());
 			print("What would you like to do?");
 			String input =in.nextLine();
-			
 			act(input);
 			
 		}

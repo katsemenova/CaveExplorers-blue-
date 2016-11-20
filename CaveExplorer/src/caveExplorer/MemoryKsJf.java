@@ -60,11 +60,13 @@ public class MemoryKsJf implements Playable {
 		}
 		if(MemoryAiKat.getUserPairs()<MemoryAiKat.getCompPairs()){
 			System.out.println("Hahahaha I won, if you want to get the key play again...and win");
+			CaveExplorer.keyGameOne=true;
 		}
 		else if(MemoryAiKat.getUserPairs()>=MemoryAiKat.getCompPairs()){
 			System.out.println("Ugh I have to practice. You won, here is your key");
 		}
 	}
+	//do we use anywhere?
 	private boolean cardsLeft() {
 		for(int r=0;r<cards.length;r++){
 			for(int c=0;c<cards[r].length;c++){
@@ -75,14 +77,6 @@ public class MemoryKsJf implements Playable {
 		return false;
 	}
 
-	public void enter(){
-		//super.enter(); //done to make sure that the X is moved in the actual thing
-		
-	}
-	public void interpretAction(String input){
-		
-	}
-	
 	protected static boolean isValid(String input) {
 		String[] validKeys={"1","2","3","4","5","6","7","8","9","10","11","12"};
 		for(String key:validKeys){

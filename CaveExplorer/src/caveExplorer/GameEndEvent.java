@@ -7,8 +7,13 @@ public class GameEndEvent implements Playable {
 	}
 
 	public void play(){
-		readSequence(SEQUENCE);
-		System.out.println("The End");
+		if(CaveExplorer.keyGameOne&&CaveExplorer.keyGameTwo&&CaveExplorer.keyGameThree){
+			readSequence(SEQUENCE);
+			System.out.println("The End");
+		}else{
+			System.out.println("You found the exit, but you don't have all the keys yet. Keep looking.");
+		}
+		
 	}
 	
 	public static void readSequence(String[] seq){
