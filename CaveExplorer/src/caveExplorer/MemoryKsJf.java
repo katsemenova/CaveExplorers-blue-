@@ -14,7 +14,7 @@ public class MemoryKsJf implements Playable {
 	
 	public void play(){
 		MemoryAiKat.initialize();
-		playScript();
+		//playScript();
 		MemorySetUpJf.initialize();
 		
 		gameMode();
@@ -55,6 +55,8 @@ public class MemoryKsJf implements Playable {
 			else{
 				MemoryAiKat.computerMove();
 			}	
+			MemorySetUpJf.updateMap();
+			MemorySetUpJf.print(MemorySetUpJf.map);
 		}
 		if(MemoryAiKat.getUserPairs()<MemoryAiKat.getCompPairs()){
 			System.out.println("Hahahaha I won, if you want to get the key play again...and win");
@@ -83,14 +85,9 @@ public class MemoryKsJf implements Playable {
 	
 	protected static boolean isValid(String input) {
 		String[] validKeys={"1","2","3","4","5","6","7","8","9","10","11","12"};
-		String ignore="";
-		for(int i=0;i<13;i++){
-			for(int j=0;j<13;j++){
-				if(i==j)
-					ignore = "do nothing";
-				else if(input.equals(validKeys[i]+"_"+validKeys[j]))
-					return true;
-			}
+		for(String key:validKeys){
+			if(input.toLowerCase().equals(key))
+				return true; 
 		}
 		return false;
 	}

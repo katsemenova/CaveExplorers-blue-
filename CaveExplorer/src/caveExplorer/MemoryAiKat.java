@@ -20,6 +20,7 @@ public class MemoryAiKat extends MemoryKsJf implements Playable{
 		setCompPairs(0);
 		gameDone=false;
 		playerMove=true;
+		in=new Scanner(System.in);
 	}
 	
 	public static void userMove(){
@@ -29,29 +30,29 @@ public class MemoryAiKat extends MemoryKsJf implements Playable{
 		cardObj1=MemoryKsJf.cards[index1[0]][index1[1]];
 		MemoryKsJf.cards[index1[0]][index1[1]].setLearned(true);
 		
-		System.out.println("Card number" + cardOne+"has the symbol" + cardObj1.getSymbol());
+		System.out.println("Card number " + cardOne+" has the symbol " + cardObj1.getSymbol());
 		
 		cardTwo=Integer.parseInt(userSelectCard());
 		int[] index2=getIndexOfCardNum(cardTwo);
 		cardObj2=MemoryKsJf.cards[index2[0]][index2[1]];
 		MemoryKsJf.cards[index2[0]][index2[1]].setLearned(true);;
 		
-		System.out.println("Card number" + cardTwo+"has the symbol" + cardObj2.getSymbol());
+		System.out.println("Card number " + cardTwo+" has the symbol " + cardObj2.getSymbol());
 		
 		if(checkMatch()){
 			MemoryKsJf.cards[index1[0]][index1[1]].setFlippedOpen(true);
 			MemoryKsJf.cards[index2[0]][index2[1]].setFlippedOpen(true);
-			System.out.println("You got a pair");
+			System.out.println("\nYou got a pair");
 			setUserPairs(getUserPairs() + 1);
 		}else{
-			System.out.println("Haha, you didn't get a pair.");
+			System.out.println("\nHaha, you didn't get a pair.");
 		}
 		playerMove=false;
 	}
 	private static int[] getIndexOfCardNum(int card) {
 		int[] arr=new int[2];
-		for(int r=0;r<4;r++){
-			for(int c=0;c<3;c++){
+		for(int r=0;r<MemoryKsJf.cards.length;r++){
+			for(int c=0;c<MemoryKsJf.cards[r].length;c++){
 				if(Integer.parseInt(MemoryKsJf.cards[r][c].getNumIdentifier())==card){
 					arr[0]=r;
 					arr[1]=c;
@@ -62,13 +63,14 @@ public class MemoryAiKat extends MemoryKsJf implements Playable{
 	}
 
 	public static void computerMove(){
-		int[] arr= setLearnedPairIndex();
+		String[] arr= setLearnedPairIndex();
 		int[] index1;
 		int[] index2;
 		
-		if(arr[0]!=0&&arr[1]!=0){
-			index1=getIndexOfCardNum(arr[0]);
-			index2=getIndexOfCardNum(arr[1]);
+		if(!arr[1].equals("")&&!arr[0].equals("")){
+			System.out.println("not random");
+			index1=getIndexOfCardNum(Integer.parseInt(arr[0]));
+			index2=getIndexOfCardNum(Integer.parseInt(arr[1]));
 			
 			cardObj1=MemoryKsJf.cards[index1[0]][index1[1]];
 			cardObj2=MemoryKsJf.cards[index2[0]][index2[1]];
@@ -76,10 +78,11 @@ public class MemoryAiKat extends MemoryKsJf implements Playable{
 			MemoryKsJf.cards[index1[0]][index1[1]].setFlippedOpen(true);
 			MemoryKsJf.cards[index2[0]][index2[1]].setFlippedOpen(true);
 			System.out.println("Hahaha! You see I got a pair. Cards " + cardObj1.getNumIdentifier()+
-					" and "+cardObj1.getNumIdentifier()+" both had " + cardObj1.getSymbol()+". Your turn again.");
+					" and "+cardObj2.getNumIdentifier()+" both had " + cardObj1.getSymbol()+". Your turn again.");
 			
 		}else{
 			//settingCards
+			System.out.println("random");
 			index1 = getIndexOfCardNum(getNumIdentFromLearned());
 			cardObj1=MemoryKsJf.cards[index1[0]][index1[1]];
 			
@@ -92,14 +95,18 @@ public class MemoryAiKat extends MemoryKsJf implements Playable{
 			}
 			if(checkMatch()){
 				setCompPairs(getCompPairs() + 1);
-				System.out.println("Mwahaaa! I got a match. Cards " + cardObj1.getNumIdentifier()+
-					" and "+cardObj1.getNumIdentifier()+" both had " + cardObj1.getSymbol());
+				System.out.println("\nMwahaaa! I got a match. Cards " + cardObj1.getNumIdentifier()+
+					" and "+cardObj2.getNumIdentifier()+" both had " + cardObj1.getSymbol());
 				MemoryKsJf.cards[index2[0]][index2[1]].setFlippedOpen(true);
 				MemoryKsJf.cards[index1[0]][index1[1]].setFlippedOpen(true);
 				MemoryKsJf.cards[index2[0]][index2[1]].setLearned(true);
 				MemoryKsJf.cards[index1[0]][index1[1]].setLearned(true);
 			}else{
-				System.out.println("Ughh, I didn't get a pair");
+				System.out.println("I chose cards " + cardObj1.getNumIdentifier()+
+						" and "+cardObj2.getNumIdentifier()+". Card "+cardObj1.getNumIdentifier()+
+						" had "+ cardObj1.getSymbol()+". Card "+cardObj2.getNumIdentifier()+
+						" had "+ cardObj2.getSymbol());
+				System.out.println("\nUghh, I didn't get a pair");
 			}
 		}
 		playerMove=true;
@@ -119,17 +126,18 @@ public class MemoryAiKat extends MemoryKsJf implements Playable{
 		}
 		
 		int cardNum=(int)(Math.random()*12);
-		while(!learnedCardExcists[cardNum-1]){
+		while(!learnedCardExcists[cardNum]){
 			cardNum=(int)(Math.random()*12);
 		}
-		return cardNum;
+		return learnedNum[cardNum];
 		
 	}
 
-	private static int[] setLearnedPairIndex() {
+	private static String[] setLearnedPairIndex() {
 		String[] learnedSym=new String[12];
 		int[] learnedNum=new int[12];
-		int[] pairNum=new int[2];
+		boolean[] excist=new boolean[12];
+		String[] pairNum=new String[2];
 		int i=0;
 		
 		for(int r=0;r<MemoryKsJf.cards.length;r++){
@@ -137,15 +145,20 @@ public class MemoryAiKat extends MemoryKsJf implements Playable{
 				if(MemoryKsJf.cards[r][c].getLearned()&&!MemoryKsJf.cards[r][c].isFlippedOpen()){
 					learnedSym[i]=MemoryKsJf.cards[r][c].getSymbol();
 					learnedNum[i]=Integer.parseInt(MemoryKsJf.cards[r][c].getNumIdentifier());
+					excist[i]=true;
+					i++;
 				}
 			}
 		}
-		
-		for(int j=0;j<learnedSym.length;j++){
-			for(int k=0;k<learnedSym.length;k++){
-				if(j!=k&&learnedSym[j].equals(learnedSym[k]))
-					pairNum[0]=learnedNum[j];
-					pairNum[1]=learnedNum[k];
+		pairNum[0]="";
+		pairNum[1]="";
+		for(int j=0;j<12;j++){
+			for(int k=0;k<12;k++){
+				if(j!=k&&excist[j]==true&&excist[k]==true&&learnedSym[j].equals(learnedSym[k])){
+					pairNum[0]=""+learnedNum[j];
+					pairNum[1]=""+learnedNum[k];
+				}
+	
 			}
 		}
 		return pairNum;
@@ -162,13 +175,16 @@ public class MemoryAiKat extends MemoryKsJf implements Playable{
 		System.out.println("Please type the digit of the card you are selecting");
 		String input =in.nextLine();
 		
-		
 		while(!MemoryKsJf.isValid(input)){
-			int[] index= getIndexOfCardNum(Integer.parseInt(input));
-			while(!MemoryKsJf.cards[index[0]][index[1]].isFlippedOpen()){
-				System.out.println("That's not a valid card. Type the digit of the card you are selecting, \n make sure it's not flipped open.");
-				input =in.nextLine();
-			}
+			System.out.println("That's not a valid card. Type the digit of the card you are selecting.");
+			input =in.nextLine();
+		}
+		int[] index= getIndexOfCardNum(Integer.parseInt(input));
+		
+		while(MemoryKsJf.cards[index[0]][index[1]].isFlippedOpen()){
+			index= getIndexOfCardNum(Integer.parseInt(input));
+			System.out.println("That's not a valid card. Type the digit of the card you are selecting, \n make sure it's not flipped open.");
+			input =in.nextLine();
 		}
 		return input;
 	}

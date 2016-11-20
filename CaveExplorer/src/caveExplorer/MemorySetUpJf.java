@@ -2,8 +2,8 @@ package caveExplorer;
 
 public class MemorySetUpJf extends MemoryKsJf {
 	
-	public static String[] symbols={"#","#","@","@","*","*","?","?","!","!","%","%"};
-	private static String map[][];
+	public static String[] symbols={"~","~","@","@","*","*","?","?","!","!","%","%"};
+	static String map[][];
 	
 	public MemorySetUpJf() {
 		
@@ -47,6 +47,7 @@ public class MemorySetUpJf extends MemoryKsJf {
 		for(int row=0;row<cards.length;row++){
 			for(int col=0;col<cards[row].length;col++){
 				cards[row][col]=new CardJf(setSymbols(),""+count);
+				System.out.println("card"+ cards[row][col].getNumIdentifier() +" is "+cards[row][col].getSymbol());
 				count++;
 			}
 		}
