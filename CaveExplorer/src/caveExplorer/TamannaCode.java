@@ -34,7 +34,7 @@ public class TamannaCode {
 		int counter = 0;
 		while(counter < NUMBER_OF_BOULDERS){
 		    int randRow = (int)(Math.random() * 8) + 1; //1-8
-		    int randColumn = (int)(Math.random() * 9) + 1; //1-9
+		    int randColumn = (int)(Math.random() * 8) + 1; //1-8
 		    if (display[randRow][randColumn].equals(" ")){
 		        display[randRow][randColumn] = "O";
 		        counter++;
