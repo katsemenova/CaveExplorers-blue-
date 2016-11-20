@@ -22,7 +22,7 @@ public class TamannaCode {
 	private static String[][] riddles = {
 			{"Why didn't the skeleton cross the road?","he didn't have the guts"},
 			{"What is a witch's favorite subject at school?","spelling"},
-			{"They say you can fear me, and they are not wrong. I am the \n Ultimate stalker and "
+			{"They say you can fear me, and they are not wrong. I am the \n Ultimate \n stalker and "
 					+ "though you can always see me you'll never be able to \n flee from me. What am I?",
 					"a shadow"},
 			{"Divine as I may seem, up hold my golden. You defend me without a \n moments notice, "
