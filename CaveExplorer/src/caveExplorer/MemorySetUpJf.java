@@ -79,7 +79,6 @@ public class MemorySetUpJf extends MemoryKsJf {
 				count++;
 			}
 		}
-		System.out.println("drawingd");
 	}
 
 	private static String setSymbols() {
