@@ -44,7 +44,8 @@ public class MemoryKsJf implements Playable {
 			CaveExplorer.print(s);
 			CaveExplorer.print("-----Press Enter------");
 			String input = CaveExplorer.in.nextLine();
-			if(input=="cheat"){
+			System.out.println(input);
+			if(input.equals("cheat")){
 				wantCheat=true;
 				System.out.println("check");
 			}
