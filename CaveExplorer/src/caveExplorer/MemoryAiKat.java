@@ -264,7 +264,7 @@ public class MemoryAiKat extends MemoryKsJf implements Playable{
 		//if in same row
 		if(rowOne==rowTwo){
 			temp = accessCard(index2[0],index2[1]);
-			MemoryKsJf.cards[index2[0]][index2[1]]=accessCard(index2[0],index2[1]);
+			MemoryKsJf.cards[index2[0]][index2[1]]=accessCard(index1[0],index1[1]);
 			MemoryKsJf.cards[index1[0]][index1[1]]=temp;
 			
 		}else{
