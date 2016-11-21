@@ -100,7 +100,8 @@ public class MemoryKsJf implements Playable {
 			String input = CaveExplorer.in.nextLine();
 			if(input.equals("cheat")){
 				wantCheat=true;
-				System.out.println("check");
+				System.out.println("Ugh I have to practice. You won, here is your key");
+				CaveExplorer.keyGameOne=true;
 			}
 			else{
 				System.out.println("We will play again NOW, HAHA, you can't leave until you win. Maybe you will never win?");
