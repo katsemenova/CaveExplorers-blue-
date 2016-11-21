@@ -124,17 +124,14 @@ public class MemoryAiKat extends MemoryKsJf implements Playable{
 			
 		}else{
 			int cardNum1=getNumIdentFromLearned();
-			System.out.println("1st card "+cardNum1);
 			int cardNum2=(int)(Math.random()*12);
-			System.out.println("2st card "+cardNum2);
+			
 			index1 = getIndexOfCardNum(cardNum1);
 			index2=getIndexOfCardNum(cardNum2);
 			
 			while(cardNum1==cardNum2||accessCard(index2[0],index2[1]).isFlippedOpen()){
-					
 				cardNum2=(int)(Math.random()*12);
 				index2=getIndexOfCardNum(cardNum2);
-				System.out.println("2st card "+cardNum2);
 				}		
 			
 			if(checkMatch(accessCard(index2[0],index2[1]),accessCard(index1[0],index1[1]))){
@@ -271,49 +268,50 @@ public class MemoryAiKat extends MemoryKsJf implements Playable{
 			MemoryKsJf.cards[index1[0]][index1[1]]=temp;
 			
 		}else{
-			if(rowOne==0||rowOne==2){
-				//shift right row  two
-				int length = MemoryKsJf.cards[1].length;
-				temp = MemoryKsJf.cards[rowOne][length-1];
-				for (int k=length-1; k>=1; k--){
-					MemoryKsJf.cards[rowOne][k] = MemoryKsJf.cards[rowOne][k-1];
-				}
-				MemoryKsJf.cards[rowOne][0] = temp;
-			}else{
-				int length = MemoryKsJf.cards[rowOne].length;
-				temp = MemoryKsJf.cards[rowOne][0];
-				for (int k=0; k<length-1; k++){
-					MemoryKsJf.cards[rowOne][k] = MemoryKsJf.cards[rowOne][k+1];
-				}
-				MemoryKsJf.cards[rowOne][length-1] = temp;
-			}
-			if(rowTwo==0||rowTwo==2){
-				//shift right row  two
-				int length = MemoryKsJf.cards[1].length;
-				temp = MemoryKsJf.cards[rowTwo][length-1];
-				for (int k=length-1; k>=1; k--){
-					MemoryKsJf.cards[rowTwo][k] = MemoryKsJf.cards[rowTwo][k-1];
-				}
-				MemoryKsJf.cards[rowTwo][0] = temp;
-			}else{
-				int length = MemoryKsJf.cards[rowTwo].length;
-				temp = MemoryKsJf.cards[rowTwo][0];
-				for (int k=0; k<length-1; k++){
-					MemoryKsJf.cards[rowTwo][k] = MemoryKsJf.cards[rowTwo][k+1];
-				}
-				MemoryKsJf.cards[rowTwo][length-1] = temp;
-//			//if in diff rows
 //			if(rowOne==0||rowOne==2){
-//				shiftRight(rowOne);
+//				//shift right row  two
+//				int length = MemoryKsJf.cards[1].length;
+//				temp = MemoryKsJf.cards[rowOne][length-1];
+//				for (int k=length-1; k>=1; k--){
+//					MemoryKsJf.cards[rowOne][k] = MemoryKsJf.cards[rowOne][k-1];
+//				}
+//				MemoryKsJf.cards[rowOne][0] = temp;
 //			}else{
-//				shiftLeft(rowOne);
+//				int length = MemoryKsJf.cards[rowOne].length;
+//				temp = MemoryKsJf.cards[rowOne][0];
+//				for (int k=0; k<length-1; k++){
+//					MemoryKsJf.cards[rowOne][k] = MemoryKsJf.cards[rowOne][k+1];
+//				}
+//				MemoryKsJf.cards[rowOne][length-1] = temp;
 //			}
 //			if(rowTwo==0||rowTwo==2){
-//				shiftRight(rowTwo);
+//				//shift right row  two
+//				int length = MemoryKsJf.cards[1].length;
+//				temp = MemoryKsJf.cards[rowTwo][length-1];
+//				for (int k=length-1; k>=1; k--){
+//					MemoryKsJf.cards[rowTwo][k] = MemoryKsJf.cards[rowTwo][k-1];
+//				}
+//				MemoryKsJf.cards[rowTwo][0] = temp;
 //			}else{
-//				shiftLeft(rowTwo);
+//				int length = MemoryKsJf.cards[rowTwo].length;
+//				temp = MemoryKsJf.cards[rowTwo][0];
+//				for (int k=0; k<length-1; k++){
+//					MemoryKsJf.cards[rowTwo][k] = MemoryKsJf.cards[rowTwo][k+1];
+//				}
+//				MemoryKsJf.cards[rowTwo][length-1] = temp;
 //			}
-		}
+			//if in diff rows
+			if(rowOne==0||rowOne==2){
+				shiftRight(rowOne);
+			}else{
+				shiftLeft(rowOne);
+			}
+			if(rowTwo==0||rowTwo==2){
+				shiftRight(rowTwo);
+			}else{
+				shiftLeft(rowTwo);
+			}
+		
 			}
 		
 	}
