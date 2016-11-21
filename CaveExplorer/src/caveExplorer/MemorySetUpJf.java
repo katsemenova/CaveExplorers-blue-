@@ -58,6 +58,10 @@ public class MemorySetUpJf extends MemoryKsJf {
 		}
 	}
 	
+	public static void checkAdjCards(){
+		
+	}
+	
 	public static void resetCards(){
 		for(int row=0;row<cards.length;row++){
 			for(int col=0;col<cards[row].length;col++){
