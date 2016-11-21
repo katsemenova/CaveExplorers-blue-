@@ -8,7 +8,7 @@ public class TamannaCode {
 	public static boolean met = false;
 	public static String[][] display = TamannaViolettaRoom.contents;
 
-	public static final int NUMBER_OF_BOULDERS = 6;
+	public static final int NUMBER_OF_TREES = 6;
 	private static final String[] ENCOUNTER = {"Oh no, you have stumbled across "
 			+ "the Cheshire cat!", "In order to pass him, you will need to answer "
 					+ "his riddle correctly.", "If you do not answer him correctly, "
@@ -50,7 +50,7 @@ public class TamannaCode {
 	
 	public static void placeBoulders(){
 		int counter = 0;
-		while(counter < NUMBER_OF_BOULDERS){
+		while(counter < NUMBER_OF_TREES){
 		    int randRow = (int)(Math.random() * 8) + 1; //1-8
 		    int randColumn = (int)(Math.random() * 8) + 1; //1-8
 		    if (display[randRow][randColumn].equals(" ")){
@@ -74,7 +74,7 @@ public class TamannaCode {
 		int newCats = 0;
 		
 		while (newCats != 2){
-			int randRow = (int)(Math.random() * 5) + 4; //4-8
+			int randRow = (int)(Math.random() * 8) + 1; //1-8
 			int randColumn = (int)(Math.random() * 8) + 1; //1-8
 			if (display[randRow][randColumn].equals(" ") && 
 					!(display[randRow][randColumn].equals("O")) 
