@@ -66,6 +66,11 @@ public class MemorySetUpJf extends MemoryKsJf {
 			}
 		}
 		
+		String[] symbolArr={"~","~","@","@","*","*","?","?","!","!","%","%"};
+		for(int i=0; i<symbolArr.length;i++){
+			symbols[i]=symbolArr[i];
+		}
+		
 		int count=1;
 		for(int r=0;r<cards.length;r++){
 			for(int c=0;c<cards[r].length;c++){

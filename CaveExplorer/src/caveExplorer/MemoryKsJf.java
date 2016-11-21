@@ -71,12 +71,13 @@ public class MemoryKsJf implements Playable {
 				cards[r][c].setLearned(false);
 			}
 		}
+		MemorySetUpJf.resetCards();
 		System.out.println("replay exit for loop");
 		MemoryAiKat.setUserPairs(0);
 		MemoryAiKat.setCompPairs(0);
 		MemoryAiKat.gameDone=false;
 		MemoryAiKat.playerMove=true;
-		MemorySetUpJf.resetCards();
+		
 		MemorySetUpJf.updateMap();
 		MemorySetUpJf.print(MemorySetUpJf.map);
 		gameMode();
