@@ -268,7 +268,6 @@ public class MemoryAiKat extends MemoryKsJf implements Playable{
 			MemoryKsJf.cards[index1[0]][index1[1]]=temp;
 			
 		}else{
-			//if in diff rows
 			if(rowOne==0||rowOne==2){
 				shiftRight(rowOne);
 			}else{
@@ -284,17 +283,17 @@ public class MemoryAiKat extends MemoryKsJf implements Playable{
 	}
 	private static void shiftRight(int row){
 		int length = MemoryKsJf.cards[1].length;
-        CardJf temp = accessCard(row,length-1);
+        CardJf temp = MemoryKsJf.cards[row][length-1];
         for (int k=length-1; k>=1; k--){
-        	MemoryKsJf.cards[row][k] = accessCard(row,k-1);
+        	MemoryKsJf.cards[row][k] = MemoryKsJf.cards[row][k-1];
         }
         MemoryKsJf.cards[row][0] = temp;
 	}
 	private static void shiftLeft(int row){
 		int length = MemoryKsJf.cards[row].length;
-		CardJf temp = accessCard(row,0);
+		CardJf temp = MemoryKsJf.cards[row][0];
         for (int k=0; k<length-1; k++){
-        	MemoryKsJf.cards[row][k] = accessCard(row,k+1);
+        	MemoryKsJf.cards[row][k] = MemoryKsJf.cards[row][k+1];
         }
         MemoryKsJf.cards[row][length-1] = temp;
 	}
