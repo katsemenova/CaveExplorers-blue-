@@ -124,13 +124,13 @@ public class MemoryAiKat extends MemoryKsJf implements Playable{
 			
 		}else{
 			int cardNum1=getNumIdentFromLearned();
-			int cardNum2=(int)(Math.random()*12);
+			int cardNum2=(int)(Math.random()*12)+1;
 			
 			index1 = getIndexOfCardNum(cardNum1);
 			index2=getIndexOfCardNum(cardNum2);
 			
 			while(cardNum1==cardNum2||accessCard(index2[0],index2[1]).isFlippedOpen()){
-				cardNum2=(int)(Math.random()*12);
+				cardNum2=(int)(Math.random()*12)+1;
 				index2=getIndexOfCardNum(cardNum2);
 				}		
 			
