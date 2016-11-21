@@ -15,8 +15,15 @@ public class EventRoom extends CaveRoomPd8 {
 		//make all normal things happen
 		super.enter();
 		if(!eventHappened){
-			eventHappened=true;
 			event.play();
+			eventHappened=true;
+			if(event instanceof Completable){
+				if(!((Completable)event).didComplete()){
+					eventHappened=false;
+				}
 		}
 	}
+	}
+	
+
 }
