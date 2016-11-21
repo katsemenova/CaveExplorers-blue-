@@ -95,7 +95,34 @@ public class MemoryKsJf implements Playable {
 			System.out.println("Hahahaha I won, if you want to get the key play again...and win");
 			System.out.println("Do you want to play again?");
 			String input = CaveExplorer.in.nextLine();
+			boolean cheatTyped = false;
+			boolean typeYes=false;
 			if(input.equals("cheat")){
+				cheatTyped=true;
+				typeYes=true;
+			}
+			if(input.toLowerCase().indexOf("yes")<0 ){
+				cheatTyped=true;
+				typeYes=true;
+			}
+			while(!typeYes || !cheatTyped){
+				CaveExplorer.print("I will not let you continue until you are ready. Type 'yes' when you are ready.");
+				input = CaveExplorer.in.nextLine();
+				if(input.equals("cheat")){
+					cheatTyped=true;
+				}
+				 if(input.toLowerCase().indexOf("yes")<0 ){
+					typeYes=true;
+				 }
+			}
+			if(input.equals("cheat")){
+				cheatTyped=true;
+				
+			}
+			else{
+				cheatTyped=false;
+			}
+			if(cheatTyped){
 				wantCheat=true;
 				System.out.println("Ugh I have to practice. You won, here is your key");
 				CaveExplorer.keyGameOne=true;
