@@ -10,8 +10,10 @@ public class CaveExplorer {
 	public static boolean keyGameOne;
 	public static boolean keyGameTwo;
 	public static boolean keyGameThree;
+	static boolean notLeftGame;
 	
 	public static void main(String[] args){
+		notLeftGame=true;
 		keyGameOne=false;
 		keyGameTwo=false;
 		keyGameThree=false;
@@ -53,11 +55,13 @@ public class CaveExplorer {
 
 	private static void startExploring() {
 		while(true){
-			print(inventory.getDescription());
-			print(currentRoom.getDescription());
-			print("What would you like to do?");
-			String input =in.nextLine();
-			act(input);
+			if(!keyGameOne||!keyGameTwo||!keyGameThree||notLeftGame){
+				print(inventory.getDescription());
+				print(currentRoom.getDescription());
+				print("What would you like to do?");
+				String input =in.nextLine();
+				act(input);
+			}
 			
 		} 
 	}

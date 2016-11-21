@@ -9,6 +9,7 @@ public class GameEndEvent implements Playable {
 	public void play(){
 		if(CaveExplorer.keyGameOne&&CaveExplorer.keyGameTwo&&CaveExplorer.keyGameThree){
 			readSequence(SEQUENCE);
+			CaveExplorer.notLeftGame=true;
 			System.out.println("The End");
 		}else{
 			System.out.println("You found the exit, but you don't have all the keys yet. Keep looking.");
