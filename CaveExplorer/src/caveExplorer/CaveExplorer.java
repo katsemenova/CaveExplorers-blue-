@@ -27,17 +27,17 @@ public class CaveExplorer {
 		currentRoom = caves[4][4];
 
 		caves[4][4].setConnection(CaveRoomPd8.EAST, caves[4][5],new Door());
-		caves[3][1]=new EventRoom("This is where you found the first key", new MemoryKsJf());
+		caves[3][1]=new EventRoom("This is where you found the first key", new MemoryKsJf());//cheat code = 
 		caves[4][5]=new EventRoom("This is where you found the map", new GameStartEvent());
-		caves[1][5]=new EventRoom("This is where you found the third key", new WendyZhengRoom());
-		caves[2][0]=new EventRoom("This is where you found the second key", new TamannaViolettaRoom());
+		caves[1][5]=new EventRoom("This is where you found the third key", new WendyZhengRoom());//cheat code = donut
+		caves[2][0]=new EventRoom("This is where you found the second key", new TamannaViolettaRoom());//cheat code = cheat
 		caves[0][1]=new EventRoom("This is the exit", new GameEndEvent());
 		currentRoom.enter();
 		inventory=new InventoryNockles(caves);
 		startExploring();
 	}
 
-	private static void setAllDoors() {
+	private static void setAllDoors() { 
 		for(int row=0;row<caves.length;row++){
 			for(int col=0;col<caves[0].length-1;col++){
 				caves[row][col].setConnection(CaveRoomPd8.EAST, caves[row][col+1],new Door());

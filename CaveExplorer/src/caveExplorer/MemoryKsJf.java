@@ -77,7 +77,7 @@ public class MemoryKsJf implements Playable {
 		MemoryAiKat.setCompPairs(0);
 		MemoryAiKat.gameDone=false;
 		MemoryAiKat.playerMove=true;
-		
+		MemorySetUpJf.resetCards();
 		MemorySetUpJf.updateMap();
 		MemorySetUpJf.print(MemorySetUpJf.map);
 		gameMode();
