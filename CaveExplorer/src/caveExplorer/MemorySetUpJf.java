@@ -62,6 +62,21 @@ public class MemorySetUpJf extends MemoryKsJf {
 		
 	}
 	
+	private boolean AdjCardSame(){
+		boolean adj = false;
+		for(int row=0;row<cards.length;row++){
+			for(int col=1;col<cards[row].length;col++){
+					String cardBefore = cards[row][col-1].getSymbol;
+					String card = cards[row][col].getSymbol;
+					if(cardBefore.equals(card)){
+						adj=true;
+					}
+			}
+		}
+		
+		return adj;
+	} 
+	
 	public static void resetCards(){
 		for(int row=0;row<cards.length;row++){
 			for(int col=0;col<cards[row].length;col++){
