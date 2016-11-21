@@ -5,13 +5,13 @@ import java.util.Scanner;
 public class WendyDotBoxPlayer implements Player{
 
 	public static Scanner input = new Scanner(System.in);
-	public static String cheat = "Donut";
+	public static String cheat = "donut";
  
 	public void makeMove() {
 		// TODO Auto-generated method stub
 		while(WendyZhengRoom.whosmove.equals("P") && WendyZhengRoom.checkGameFinish() == false ) 
 		{
-			if(input.nextLine().equals(cheat))
+			if(input.nextLine().toLowerCase().equals(cheat))
 			{
 				cheat();
 				break;
