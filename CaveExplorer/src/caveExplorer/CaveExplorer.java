@@ -31,7 +31,7 @@ public class CaveExplorer {
 		caves[4][4].setConnection(CaveRoomPd8.EAST, caves[4][5],new Door());
 		caves[3][1]=new EventRoom("This is where you found the first key", new MemoryKsJf());//cheat code = cheat, can only call it while in game introduction
 		caves[4][5]=new EventRoom("This is where you found the map", new GameStartEvent());
-		caves[1][5]=new EventRoom("This is where you found the third key", new WendyZhengRoom());//cheat code = donut
+		caves[1][5]=new EventRoom("This is where you found the third key", new WendyZhengRoom());//cheat code = cheat
 		caves[2][0]=new EventRoom("This is where you found the second key", new TamannaViolettaRoom());//cheat code = cheat
 		caves[0][1]=new EventRoom("This is the exit", new GameEndEvent());
 		currentRoom.enter();

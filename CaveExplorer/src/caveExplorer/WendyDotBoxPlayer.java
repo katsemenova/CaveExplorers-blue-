@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class WendyDotBoxPlayer implements Player{
 
 	public static Scanner input = new Scanner(System.in);
-	public static String cheat = "donut";
+	public static String cheat = "cheat";
  
 	public void makeMove() {
 		// TODO Auto-generated method stub
@@ -22,26 +22,26 @@ public class WendyDotBoxPlayer implements Player{
 				int row = checkNum();
 				while(row == -1)
 				{
-					System.out.println("Please try a number");
+					System.out.println("Please try a number within 0 and 3");
 					row = checkNum();
 				}
 				while(row > WendyZhengRoom.board.length)
 				{
 					System.out.println("Please pick a row within 0 and 3");
-					row = input.nextInt();
+					row = checkNum();
 				}
 			
 				System.out.println("Where is your next move's column?");
 				int col = checkNum();
 				while(col == -1)
 				{
-					System.out.println("Please try a number");
+					System.out.println("Please try a number within 0 and 3");
 					col = checkNum();
 				}
 				while(col > WendyZhengRoom.board[0].length)
 				{
 					System.out.println("Please pick a col within 0 and 3");
-					col = input.nextInt();
+					col = checkNum();
 				}
 		
 				System.out.println("What is your next move's direction? (north,east,south,west)");
