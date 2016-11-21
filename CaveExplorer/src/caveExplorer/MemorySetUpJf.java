@@ -20,7 +20,13 @@ public class MemorySetUpJf extends MemoryKsJf {
 		for(int row=0;row<map.length;row++){
 			for(int col=0;col<map[row].length;col++){
 				if(row%2==1){
-					map[row][col]= getContent(cardRow,col)+" |";
+					String display = getContent(cardRow, col);
+					if(col==0){
+						map[row][col]= "|"+display+" |";
+					}else{
+						map[row][col]= display+" |";
+					}
+					
 				}
 				else{
 					map[row][col]= "----";

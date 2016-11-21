@@ -80,7 +80,7 @@ public class MemoryKsJf implements Playable {
 	private void figureOutGameStatus(){
 		if(MemoryAiKat.getUserPairs()<MemoryAiKat.getCompPairs()){
 			System.out.println("Hahahaha I won, if you want to get the key play again...and win");
-			System.out.println("We play again NOW, HAHA, you can't leave until you win. Maybe you will never win?");
+			System.out.println("We will play again NOW, HAHA, you can't leave until you win. Maybe you will never win?");
 			replay();
 		}
 		else if(MemoryAiKat.getUserPairs()>=MemoryAiKat.getCompPairs()){
