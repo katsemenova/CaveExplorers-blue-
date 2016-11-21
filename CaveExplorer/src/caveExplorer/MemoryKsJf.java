@@ -66,14 +66,17 @@ public class MemoryKsJf implements Playable {
 	private void replay(){
 		for(int r=0;r<cards.length;r++){
 			for(int c=0;c<cards[r].length;c++){
+				System.out.println("replay for loop");
 				cards[r][c].setFlippedOpen(false);
 				cards[r][c].setLearned(false);
 			}
 		}
+		System.out.println("replay exit for loop");
 		MemoryAiKat.setUserPairs(0);
 		MemoryAiKat.setCompPairs(0);
 		MemoryAiKat.gameDone=false;
 		MemoryAiKat.playerMove=true;
+		MemorySetUpJf.resetCards();
 		MemorySetUpJf.updateMap();
 		MemorySetUpJf.print(MemorySetUpJf.map);
 		gameMode();
@@ -81,7 +84,7 @@ public class MemoryKsJf implements Playable {
 	private void figureOutGameStatus(){
 		if(MemoryAiKat.getUserPairs()<MemoryAiKat.getCompPairs()){
 			System.out.println("Hahahaha I won, if you want to get the key play again...and win");
-			System.out.println("We play again NOW, HAHA, you can't leave until you win. Maybe you will never win?");
+			System.out.println("We will play again NOW, HAHA, you can't leave until you win. Maybe you will never win?");
 			replay();
 		}
 		else if(MemoryAiKat.getUserPairs()>=MemoryAiKat.getCompPairs()){

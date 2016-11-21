@@ -20,7 +20,13 @@ public class MemorySetUpJf extends MemoryKsJf {
 		for(int row=0;row<map.length;row++){
 			for(int col=0;col<map[row].length;col++){
 				if(row%2==1){
-					map[row][col]= getContent(cardRow,col)+" |";
+					String display = getContent(cardRow, col);
+					if(col==0){
+						map[row][col]= "|"+display+" |";
+					}else{
+						map[row][col]= display+" |";
+					}
+					
 				}
 				else{
 					map[row][col]= "----";
@@ -50,6 +56,25 @@ public class MemorySetUpJf extends MemoryKsJf {
 				count++;
 			}
 		}
+	}
+	
+	public static void resetCards(){
+		for(int row=0;row<cards.length;row++){
+			for(int col=0;col<cards[row].length;col++){
+				cards[row][col].setSymbol(null);
+				cards[row][col].setNumIdentifier(null);;
+			}
+		}
+		
+		int count=1;
+		for(int r=0;r<cards.length;r++){
+			for(int c=0;c<cards[r].length;c++){
+				cards[r][c].setSymbol(setSymbols());
+				cards[r][c].setNumIdentifier(""+count);
+				count++;
+			}
+		}
+		System.out.println("drawingd");
 	}
 
 	private static String setSymbols() {
