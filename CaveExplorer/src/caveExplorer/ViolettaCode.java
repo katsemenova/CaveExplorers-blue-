@@ -58,7 +58,7 @@ public class ViolettaCode {
 			}
 		}
 		//Just in case the cat does not appear in Alice's route
-		if(!catEncounter && AliceRow >= 5){
+		if(!catEncounter && AliceRow >= 4){
 			TamannaViolettaRoom.drawGrid();
 			TamannaViolettaRoom.readSequence(ENCOUNTER);
 			catEncounter = true;

@@ -46,6 +46,7 @@ public class TamannaViolettaRoom implements Playable{
 		initializeGrid();
 		
 		TamannaCode.placeBoulders();
+		TamannaCode.placeCats();
 		drawGrid();
 		
 		while(!endGame){
