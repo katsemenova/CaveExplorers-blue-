@@ -59,33 +59,21 @@ public class MemoryAiKat extends MemoryKsJf implements Playable{
 	private static String userSelectCard(){
 		System.out.println("Please type the digit of the card you are selecting");
 		String input =in.nextLine();
-		if(input=="cheat"){
-			CaveExplorer.keyGameOne=true;
-			setAllCardsFlippedOpen();
-			input="";
-		}else{
-			while(!MemoryKsJf.isValid(input)){
-				System.out.println("That's not a valid card. Type the digit of the card you are selecting.");
-				input =in.nextLine();
-			}
-			int[] index= getIndexOfCardNum(Integer.parseInt(input));
-			
-			while(accessCard(index[0],index[1]).isFlippedOpen()){
-				System.out.println("That's not a valid card. Type the digit of the card you are selecting, \n make sure it's not flipped open.");
-				input =in.nextLine();
-				index= getIndexOfCardNum(Integer.parseInt(input));
-			}
+		while(!MemoryKsJf.isValid(input)){
+			System.out.println("That's not a valid card. Type the digit of the card you are selecting.");
+			input =in.nextLine();
 		}
+		int[] index= getIndexOfCardNum(Integer.parseInt(input));
+			
+		while(accessCard(index[0],index[1]).isFlippedOpen()){
+			System.out.println("That's not a valid card. Type the digit of the card you are selecting, \n make sure it's not flipped open.");
+			input =in.nextLine();
+			index= getIndexOfCardNum(Integer.parseInt(input));
+		}
+		
 		return input;
 	}
 
-	private static void setAllCardsFlippedOpen() {
-		for(int r=0;r<MemoryKsJf.cards.length;r++){
-			for(int c=0;c<MemoryKsJf.cards[r].length;c++){
-				accessCard(r,c).setFlippedOpen(true);
-			}
-		}
-	}
 	/*
 	 * Used to find the index of the card in the card array based on the card's number identifier
 	 */
