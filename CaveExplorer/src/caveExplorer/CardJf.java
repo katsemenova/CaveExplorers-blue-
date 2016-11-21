@@ -12,7 +12,7 @@ public class CardJf {
 		this.numIdentifier = number;
 		flippedOpen =false;
 		learned=false;
-		//System.out.println(symbol+" and "+ numIdentifier);
+		System.out.println(symbol+" and "+ numIdentifier);
 	}
 
 	public String getSymbol() {

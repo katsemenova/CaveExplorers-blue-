@@ -57,6 +57,25 @@ public class MemorySetUpJf extends MemoryKsJf {
 			}
 		}
 	}
+	
+	public static void resetCards(){
+		for(int row=0;row<cards.length;row++){
+			for(int col=0;col<cards[row].length;col++){
+				cards[row][col].setSymbol(null);
+				cards[row][col].setNumIdentifier(null);;
+			}
+		}
+		
+		int count=1;
+		for(int r=0;r<cards.length;r++){
+			for(int c=0;c<cards[r].length;c++){
+				cards[r][c].setSymbol(setSymbols());
+				cards[r][c].setNumIdentifier(""+count);
+				count++;
+			}
+		}
+		System.out.println("drawingd");
+	}
 
 	private static String setSymbols() {
 		int num=(int)(Math.random()*12);

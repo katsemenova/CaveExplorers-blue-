@@ -66,15 +66,19 @@ public class MemoryKsJf implements Playable {
 	private void replay(){
 		for(int r=0;r<cards.length;r++){
 			for(int c=0;c<cards[r].length;c++){
+				System.out.println("replay for loop");
 				cards[r][c].setFlippedOpen(false);
 				cards[r][c].setLearned(false);
 			}
 		}
+		System.out.println("replay exit for loop");
 		MemoryAiKat.setUserPairs(0);
 		MemoryAiKat.setCompPairs(0);
 		MemoryAiKat.gameDone=false;
 		MemoryAiKat.playerMove=true;
-		MemorySetUpJf.initialize();
+		MemorySetUpJf.resetCards();
+		MemorySetUpJf.updateMap();
+		MemorySetUpJf.print(MemorySetUpJf.map);
 		gameMode();
 	}
 	private void figureOutGameStatus(){
