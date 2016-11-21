@@ -15,7 +15,7 @@ public class WendyDotBoxPlayer implements Player{
 			{
 				cheat();
 				break;
-			} 
+			}  
 			else
 			{ 
 				System.out.println("Where is your next move's row?");

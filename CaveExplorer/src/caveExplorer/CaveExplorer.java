@@ -37,7 +37,7 @@ public class CaveExplorer {
 		startExploring();
 	}
 
-	private static void setAllDoors() {
+	private static void setAllDoors() { 
 		for(int row=0;row<caves.length;row++){
 			for(int col=0;col<caves[0].length-1;col++){
 				caves[row][col].setConnection(CaveRoomPd8.EAST, caves[row][col+1],new Door());
