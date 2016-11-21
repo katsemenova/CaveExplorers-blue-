@@ -7,7 +7,6 @@ public class MemoryAiKat extends MemoryKsJf implements Playable{
 
 	public static Scanner in;
 	public static boolean playerMove;
-	public static boolean gameDone;
 	private static int cardOne;
 	private static int cardTwo;
 	private static int userPairs;
@@ -16,7 +15,6 @@ public class MemoryAiKat extends MemoryKsJf implements Playable{
 	public static void initialize() {
 		setUserPairs(0);
 		setCompPairs(0);
-		gameDone=false;
 		playerMove=true;
 		in=new Scanner(System.in);
 	}
@@ -62,11 +60,9 @@ public class MemoryAiKat extends MemoryKsJf implements Playable{
 		System.out.println("Please type the digit of the card you are selecting");
 		String input =in.nextLine();
 		if(input=="cheat"){
-			for(int r=0;r<MemoryAiKat.cards.length;r++){
-				for(int c=0;c<MemoryAiKat.cards[r].length;c++){
-					
-				}
-			}
+			CaveExplorer.keyGameOne=true;
+			setAllCardsFlippedOpen();
+			input="";
 		}else{
 			while(!MemoryKsJf.isValid(input)){
 				System.out.println("That's not a valid card. Type the digit of the card you are selecting.");
@@ -83,6 +79,13 @@ public class MemoryAiKat extends MemoryKsJf implements Playable{
 		return input;
 	}
 
+	private static void setAllCardsFlippedOpen() {
+		for(int r=0;r<MemoryKsJf.cards.length;r++){
+			for(int c=0;c<MemoryKsJf.cards[r].length;c++){
+				accessCard(r,c).setFlippedOpen(true);
+			}
+		}
+	}
 	/*
 	 * Used to find the index of the card in the card array based on the card's number identifier
 	 */

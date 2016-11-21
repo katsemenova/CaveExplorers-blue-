@@ -6,6 +6,7 @@ public class MemoryKsJf implements Playable {
 	public static MemoryAiKat Ai;
 	public static MemorySetUpJf setup;
 	public static CardJf[][] cards;
+	public static boolean wantCheat;
 	private static final String[] INTRO_GAME={"Hahaha! Welcome Alice!",
 			"You're finally here! I am the Mad Hatter and I've been waiting for you.",
 			"If you want to continue exploring the castle, you have to play a game with me first.", 
@@ -19,8 +20,15 @@ public class MemoryKsJf implements Playable {
 	public void play(){
 		MemoryAiKat.initialize();
 		playScript();
-		MemorySetUpJf.initialize();
-		gameMode();
+		if(wantCheat){
+			System.out.println("Ugh I have to practice. You won, here is your key");
+			CaveExplorer.keyGameOne=true;
+		}
+		else{
+			MemorySetUpJf.initialize();
+			gameMode();
+		}
+		
 	}
 	
 	public void playScript(){
@@ -35,7 +43,12 @@ public class MemoryKsJf implements Playable {
 		for(String s:seq){
 			CaveExplorer.print(s);
 			CaveExplorer.print("-----Press Enter------");
-			CaveExplorer.in.nextLine();
+			String input = CaveExplorer.in.nextLine();
+			if(input=="cheat"){
+				wantCheat=true;
+				System.out.println("check");
+			}
+				
 		}
 	}
 
@@ -75,7 +88,6 @@ public class MemoryKsJf implements Playable {
 		System.out.println("replay exit for loop");
 		MemoryAiKat.setUserPairs(0);
 		MemoryAiKat.setCompPairs(0);
-		MemoryAiKat.gameDone=false;
 		MemoryAiKat.playerMove=true;
 		MemorySetUpJf.resetCards();
 		MemorySetUpJf.updateMap();
@@ -94,7 +106,7 @@ public class MemoryKsJf implements Playable {
 		}
 	}
 	//do we use anywhere?
-	private boolean cardsLeft() {
+	protected static boolean cardsLeft() {
 		for(int r=0;r<cards.length;r++){
 			for(int c=0;c<cards[r].length;c++){
 				if(!cards[r][c].isFlippedOpen())

@@ -43,7 +43,7 @@ public class CaveExplorer {
 				caves[row][col].setConnection(CaveRoomPd8.EAST, caves[row][col+1],new Door());
 			}
 		}
-		//caves[0][0].setConnection(CaveRoomPd8.SOUTH, caves[1][0],new Door());
+		
 		for(int col=0;col<caves[0].length;col++){
 			for(int row=0;row<(caves.length-1);row++){
 				caves[row][col].setConnection(CaveRoomPd8.SOUTH, caves[row+1][col],new Door());
