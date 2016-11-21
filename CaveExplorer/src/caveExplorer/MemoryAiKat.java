@@ -283,17 +283,23 @@ public class MemoryAiKat extends MemoryKsJf implements Playable{
 	private static void shiftRight(int row){
 		int length = MemoryKsJf.cards[1].length;
         CardJf temp = MemoryKsJf.cards[row][length-1];
-        for (int k=length-1; k>=1; k--){
-        	MemoryKsJf.cards[row][k] = MemoryKsJf.cards[row][k-1];
+        for (int k=length-1; k>=0; k--){
+        	if(k-1<0)
+        		 MemoryKsJf.cards[row][0] = temp;
+        	else
+        		MemoryKsJf.cards[row][k] = MemoryKsJf.cards[row][k-1];
         }
-        MemoryKsJf.cards[row][0] = temp;
+       
 	}
 	private static void shiftLeft(int row){
 		int length = MemoryKsJf.cards[row].length;
 		CardJf temp = MemoryKsJf.cards[row][0];
-        for (int k=0; k<length-1; k++){
-        	MemoryKsJf.cards[row][k] = MemoryKsJf.cards[row][k+1];
+        for (int k=0; k<length; k++){
+        	if(k+1==length)
+        		MemoryKsJf.cards[row][length-1] = temp;
+        	else
+        		MemoryKsJf.cards[row][k] = MemoryKsJf.cards[row][k+1];
         }
-        MemoryKsJf.cards[row][length-1] = temp;
+      
 	}
 }
