@@ -268,51 +268,16 @@ public class MemoryAiKat extends MemoryKsJf implements Playable{
 			MemoryKsJf.cards[index1[0]][index1[1]]=temp;
 			
 		}else{
-//			if(rowOne==0||rowOne==2){
-//				//shift right row  two
-//				int length = MemoryKsJf.cards[1].length;
-//				temp = MemoryKsJf.cards[rowOne][length-1];
-//				for (int k=length-1; k>=1; k--){
-//					MemoryKsJf.cards[rowOne][k] = MemoryKsJf.cards[rowOne][k-1];
-//				}
-//				MemoryKsJf.cards[rowOne][0] = temp;
-//			}else{
-//				int length = MemoryKsJf.cards[rowOne].length;
-//				temp = MemoryKsJf.cards[rowOne][0];
-//				for (int k=0; k<length-1; k++){
-//					MemoryKsJf.cards[rowOne][k] = MemoryKsJf.cards[rowOne][k+1];
-//				}
-//				MemoryKsJf.cards[rowOne][length-1] = temp;
-//			}
-//			if(rowTwo==0||rowTwo==2){
-//				//shift right row  two
-//				int length = MemoryKsJf.cards[1].length;
-//				temp = MemoryKsJf.cards[rowTwo][length-1];
-//				for (int k=length-1; k>=1; k--){
-//					MemoryKsJf.cards[rowTwo][k] = MemoryKsJf.cards[rowTwo][k-1];
-//				}
-//				MemoryKsJf.cards[rowTwo][0] = temp;
-//			}else{
-//				int length = MemoryKsJf.cards[rowTwo].length;
-//				temp = MemoryKsJf.cards[rowTwo][0];
-//				for (int k=0; k<length-1; k++){
-//					MemoryKsJf.cards[rowTwo][k] = MemoryKsJf.cards[rowTwo][k+1];
-//				}
-//				MemoryKsJf.cards[rowTwo][length-1] = temp;
-//			}
 			//if in diff rows
-			if(rowOne==0||rowOne==2){
+			if(rowOne==0||rowOne==2)
 				shiftRight(rowOne);
-			}else{
+			else
 				shiftLeft(rowOne);
-			}
-			if(rowTwo==0||rowTwo==2){
+			if(rowTwo==0||rowTwo==2)
 				shiftRight(rowTwo);
-			}else{
+			else
 				shiftLeft(rowTwo);
-			}
-		
-			}
+		}
 		
 	}
 	private static void shiftRight(int row){
