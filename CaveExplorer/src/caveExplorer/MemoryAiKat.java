@@ -95,7 +95,6 @@ public class MemoryAiKat extends MemoryKsJf implements Playable{
 			
 			cardObj1=MemoryKsJf.cards[index1[0]][index1[1]];
 			cardObj2=MemoryKsJf.cards[index2[0]][index2[1]];
-			
 			MemoryKsJf.cards[index1[0]][index1[1]].setFlippedOpen(true);
 			MemoryKsJf.cards[index2[0]][index2[1]].setFlippedOpen(true);
 			System.out.println("Hahaha! You see I got a pair. Cards " + cardObj1.getNumIdentifier()+
@@ -128,8 +127,6 @@ public class MemoryAiKat extends MemoryKsJf implements Playable{
 					" and "+cardObj2.getNumIdentifier()+" both had " + cardObj1.getSymbol());
 				MemoryKsJf.cards[index2[0]][index2[1]].setFlippedOpen(true);
 				MemoryKsJf.cards[index1[0]][index1[1]].setFlippedOpen(true);
-				MemoryKsJf.cards[index2[0]][index2[1]].setLearned(true);
-				MemoryKsJf.cards[index1[0]][index1[1]].setLearned(true);
 				setCompPairs(getCompPairs()+1);
 			}else{
 				System.out.println("I chose cards " + cardObj1.getNumIdentifier()+
@@ -138,6 +135,8 @@ public class MemoryAiKat extends MemoryKsJf implements Playable{
 						" had "+ cardObj2.getSymbol());
 				System.out.println("\nUghh, I didn't get a pair");
 			}
+			MemoryKsJf.cards[index2[0]][index2[1]].setLearned(true);
+			MemoryKsJf.cards[index1[0]][index1[1]].setLearned(true);
 			playerMove=true;
 		}
 	}
