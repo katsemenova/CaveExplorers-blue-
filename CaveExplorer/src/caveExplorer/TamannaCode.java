@@ -61,6 +61,11 @@ public class TamannaCode {
 		placeCats();
 	}
 
+//	private static boolean checkTree() {
+//		
+//		return false;
+//	}
+
 	public static void placeCats() {
 		int randRow = (int)(Math.random() * 3) + 1; //1-3
 		int randColumn = (int)(Math.random() * 8) + 1; //1-8
