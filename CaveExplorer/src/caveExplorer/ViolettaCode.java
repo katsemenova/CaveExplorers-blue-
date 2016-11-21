@@ -100,6 +100,7 @@ public class ViolettaCode {
 				else{
 					display[AliceRow][AliceCol] = "v";
 					AliceRow++;
+					right = !right;
 					down = true;
 				}
 			}
