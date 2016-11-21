@@ -29,7 +29,7 @@ public class MemoryAiKat extends MemoryKsJf implements Playable{
 		//selects which card num to flip
 		cardOne=Integer.parseInt(userSelectCard());
 		int[] index1=getIndexOfCardNum(cardOne);
-		cardObj1=setCard(index1[0],index1[1]);
+		cardObj1=MemoryKsJf.cards[index1[0]][index1[1]];
 		
 		
 		System.out.println("Card number " + cardOne+" has the symbol " + cardObj1.getSymbol());
@@ -54,9 +54,7 @@ public class MemoryAiKat extends MemoryKsJf implements Playable{
 		playerMove=false;
 		
 	}
-	private static CardJf setCard(int i, int j) {
-		return MemoryKsJf.cards[i][j];
-	}
+
 	/*
 	 * Used to find the index of the card in the card array based on the card's number identifier
 	 */
@@ -79,7 +77,7 @@ public class MemoryAiKat extends MemoryKsJf implements Playable{
 		String[] arr= setLearnedPairIndex();
 		int[] index1;
 		int[] index2;
-		System.out.println("the learned are"+arr[0] +"and"+arr[1]);
+		
 		/*
 		 * The arr array returns the two number identifiers
 		 * if there is a matching pair
