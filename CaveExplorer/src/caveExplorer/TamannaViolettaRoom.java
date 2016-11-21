@@ -21,7 +21,7 @@ public class TamannaViolettaRoom implements Playable{
 												+ "order to see how many steps you "
 												+ "will be allowed to take, press "
 												+ "enter and he will tell you.", "When "
-														+ "you encounter boulders "
+														+ "you encounter trees "
 														+ "('O'), you will move be moved "
 														+ "downwards."};
 	private static final String[] RECAP = {"Answer all of the riddles correctly or "
@@ -46,7 +46,6 @@ public class TamannaViolettaRoom implements Playable{
 		initializeGrid();
 		
 		TamannaCode.placeBoulders();
-		TamannaCode.placeCats();
 		drawGrid();
 		
 		while(!endGame){
