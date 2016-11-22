@@ -111,6 +111,9 @@ public class ViolettaCode {
 	private static void moveAliceBack() {
 		int tempRow = AliceRow / 2; 
 		int tempCol = AliceCol / 2;
+		while(display[tempRow][tempCol].equals("O")){
+			tempCol--;
+		}
 		display[AliceRow][AliceCol] = " ";
 		for(int row = AliceRow; row > -1; row--){
 			for(int col = 0; col < display[row].length; col++){
