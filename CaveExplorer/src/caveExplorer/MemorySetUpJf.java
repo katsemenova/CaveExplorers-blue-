@@ -66,8 +66,10 @@ public class MemorySetUpJf extends MemoryKsJf {
 			int col=adjCards[1];
 			int rNum= (int)(Math.random()*cards.length);
 			int cNum=(int)(Math.random()*cards[rNum].length);
-			while(rNum==row || cNum==col || cNum==col-1){
+			while(rNum==row){
 				rNum= (int)(Math.random()*cards.length);
+			}
+			while(cNum==col || cNum==col-1){
 				cNum=(int)(Math.random()*cards[rNum].length);
 			}
 			switchCards(row,col,rNum,cNum);
