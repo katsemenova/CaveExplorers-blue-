@@ -2,6 +2,9 @@ package caveExplorer;
 import java.util.Scanner;
 
 public class TamannaCode {
+	public static int randRow;
+	public static int randCol;
+	
 	static Scanner input;
 	static String user;
 	
@@ -22,7 +25,7 @@ public class TamannaCode {
 	private static String[][] riddles = {
 			{"Why didn't the skeleton cross the road?","he didn't have the guts"},
 			{"What is a witch's favorite subject at school?","spelling"},
-			{"They say you can fear me, and they are not wrong. I am the \n Ultimate \n stalker and "
+			{"They say you can fear me, and they are not wrong. I am the Ultimate \n stalker and "
 					+ "though you can always see me you'll never be able to \n flee from me. What am I?",
 					"a shadow"},
 			{"Divine as I may seem, up hold my golden. You defend me without a \n moments notice, "
@@ -51,44 +54,51 @@ public class TamannaCode {
 	public static void placeBoulders(){
 		int counter = 0;
 		while(counter < NUMBER_OF_TREES){
-		    int randRow = (int)(Math.random() * 8) + 1; //1-8
-		    int randColumn = (int)(Math.random() * 8) + 1; //1-8
-		    if (display[randRow][randColumn].equals(" ")){
-		        display[randRow][randColumn] = "O";
+		    randRow = (int)(Math.random() * 8) + 1;
+		    randCol = (int)(Math.random() * 8) + 1;
+		    if (checkNearbySpaces(randRow, randCol) && display[randRow][randCol].equals(" ")){
+		        display[randRow][randCol] = "O";
 		        counter++;
 		    }
 		}
 		placeCats();
 	}
 
-//	private static boolean checkTree() {
-//		
-//		return false;
-//	}
+	private static boolean checkNearbySpaces(int randRow2, int randCol2) {
+		if(display[randRow2][randCol2 + 1].equals(" ") && 
+				display[randRow2][randCol2 - 1].equals(" ") && 
+				display[randRow2 + 1][randCol2].equals(" ") && 
+				display[randRow2 - 1][randCol2].equals(" ")){
+					return true;
+		}
+		return false;
+	}
 
 	public static void placeCats() {
-		int randRow = (int)(Math.random() * 3) + 1; //1-3
+		int randomRow = (int)(Math.random() * 3) + 1; //1-3
 		int randColumn = (int)(Math.random() * 8) + 1; //1-8
-		if (display[randRow][randColumn].equals(" ") && 
-				!(display[randRow][randColumn].equals("O"))){
-			display[randRow][randColumn] = "M";
+		if (checkNearbySpaces(randomRow, randColumn) && 
+				display[randomRow][randColumn].equals(" ") && 
+				!(display[randomRow][randColumn].equals("O"))){
+			display[randomRow][randColumn] = "M";
 		}
 	}
-	
+
 	public static void multiplyCat(){
 		int newCats = 0;
 		
 		while (newCats != 2){
-			int randRow = (int)(Math.random() * 8) + 1; //1-8
+			int randomRow = (int)(Math.random() * 8) + 1; //1-8
 			int randColumn = (int)(Math.random() * 8) + 1; //1-8
-			if (display[randRow][randColumn].equals(" ") && 
-					!(display[randRow][randColumn].equals("O")) 
-					&& !(display[randRow][randColumn].equals("M"))){
-						display[randRow][randColumn] = "M";
+			if (checkNearbySpaces(randomRow, randColumn) &&
+					display[randomRow][randColumn].equals(" ") && 
+					!(display[randomRow][randColumn].equals("O")) 
+					&& !(display[randomRow][randColumn].equals("M"))){
+						display[randomRow][randColumn] = "M";
 						newCats++;
 			}
 		}
-	}
+	}	
 	
 	public static String userInput(){
 		input = new Scanner(System.in);
