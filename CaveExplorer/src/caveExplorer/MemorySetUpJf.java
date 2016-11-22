@@ -56,18 +56,41 @@ public class MemorySetUpJf extends MemoryKsJf {
 				count++;
 			}
 		}
+		checkAdjCards();
 	}
 	
 	public static void checkAdjCards(){
-		
+		while(adjCardSame()){
+			for(int row=0;row<cards.length;row++){
+				for(int col=1;col<cards[row].length;col++){
+					String cardBefore = cards[row][col-1].getSymbol();
+					String card = cards[row][col].getSymbol();	
+					if(cardBefore.equals(card)){
+						int rNum= (int)(Math.random()*cards.length);
+						int cNum=(int)(Math.random()*cards[rNum].length);
+						while(rNum==row || cNum==col || cNum==col-1){
+							rNum= (int)(Math.random()*cards.length);
+							cNum=(int)(Math.random()*cards[rNum].length);
+						}
+						switchCards(row,col,rNum,cNum);
+					}
+				}
+			}
+		}
 	}
 	
-	private boolean AdjCardSame(){
+	private static void switchCards(int row, int col, int rNum, int cNum) {
+		String tempSymbol=cards[row][col].getSymbol();
+		cards[row][col].setSymbol(cards[rNum][cNum].getSymbol());
+		cards[rNum][cNum].setSymbol(tempSymbol);
+	}
+	
+	private static boolean adjCardSame(){
 		boolean adj = false;
 		for(int row=0;row<cards.length;row++){
 			for(int col=1;col<cards[row].length;col++){
-					String cardBefore = cards[row][col-1].getSymbol;
-					String card = cards[row][col].getSymbol;
+					String cardBefore = cards[row][col-1].getSymbol();
+					String card = cards[row][col].getSymbol();
 					if(cardBefore.equals(card)){
 						adj=true;
 					}
@@ -98,6 +121,7 @@ public class MemorySetUpJf extends MemoryKsJf {
 				count++;
 			}
 		}
+		checkAdjCards();
 	}
 
 	private static String setSymbols() {
