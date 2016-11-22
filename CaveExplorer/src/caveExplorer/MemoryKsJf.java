@@ -99,28 +99,19 @@ public class MemoryKsJf implements Playable {
 			boolean typeYes=false;
 			if(input.equals("cheat")){
 				cheatTyped=true;
-				typeYes=true;
 			}
-			if(input.toLowerCase().indexOf("yes")<0 ){
+			if(input.toLowerCase().indexOf("yes")>=0 ){
 				cheatTyped=true;
-				typeYes=true;
 			}
-			while(!typeYes || !cheatTyped){
+			while(!typeYes && !cheatTyped){
 				CaveExplorer.print("I will not let you continue until you are ready. Type 'yes' when you are ready.");
 				input = CaveExplorer.in.nextLine();
 				if(input.equals("cheat")){
 					cheatTyped=true;
 				}
-				 if(input.toLowerCase().indexOf("yes")<0 ){
+				if(input.toLowerCase().indexOf("yes")>=0 ){
 					typeYes=true;
 				 }
-			}
-			if(input.equals("cheat")){
-				cheatTyped=true;
-				
-			}
-			else{
-				cheatTyped=false;
 			}
 			if(cheatTyped){
 				wantCheat=true;

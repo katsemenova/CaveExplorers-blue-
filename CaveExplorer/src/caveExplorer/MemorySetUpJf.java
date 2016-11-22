@@ -61,22 +61,33 @@ public class MemorySetUpJf extends MemoryKsJf {
 	
 	public static void checkAdjCards(){
 		while(adjCardSame()){
-			for(int row=0;row<cards.length;row++){
-				for(int col=1;col<cards[row].length;col++){
+			int[] adjCards= getAdjCardsInts();	
+			int row=adjCards[0];
+			int col=adjCards[1];
+			int rNum= (int)(Math.random()*cards.length);
+			int cNum=(int)(Math.random()*cards[rNum].length);
+			while(rNum==row || cNum==col || cNum==col-1){
+				rNum= (int)(Math.random()*cards.length);
+				cNum=(int)(Math.random()*cards[rNum].length);
+			}
+			switchCards(row,col,rNum,cNum);
+		}
+	}
+	
+	private static int[] getAdjCardsInts(){
+		int[] adjCards = new int[2];
+		for(int row=0;row<cards.length;row++){
+			for(int col=1;col<cards[row].length;col++){
 					String cardBefore = cards[row][col-1].getSymbol();
-					String card = cards[row][col].getSymbol();	
+					String card = cards[row][col].getSymbol();
 					if(cardBefore.equals(card)){
-						int rNum= (int)(Math.random()*cards.length);
-						int cNum=(int)(Math.random()*cards[rNum].length);
-						while(rNum==row || cNum==col || cNum==col-1){
-							rNum= (int)(Math.random()*cards.length);
-							cNum=(int)(Math.random()*cards[rNum].length);
-						}
-						switchCards(row,col,rNum,cNum);
+						adjCards[0]=row;
+						adjCards[1]=col;
+						return adjCards;
 					}
-				}
 			}
 		}
+		return adjCards;
 	}
 	
 	private static void switchCards(int row, int col, int rNum, int cNum) {
@@ -86,19 +97,17 @@ public class MemorySetUpJf extends MemoryKsJf {
 	}
 	
 	private static boolean adjCardSame(){
-		boolean adj = false;
 		for(int row=0;row<cards.length;row++){
 			for(int col=1;col<cards[row].length;col++){
 					String cardBefore = cards[row][col-1].getSymbol();
 					String card = cards[row][col].getSymbol();
 					if(cardBefore.equals(card)){
-						adj=true;
+						return true;
 					}
 			}
 		}
-		
-		return adj;
-	} 
+		return false;
+	}
 	
 	public static void resetCards(){
 		for(int row=0;row<cards.length;row++){
